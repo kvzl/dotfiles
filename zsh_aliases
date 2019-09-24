@@ -1,0 +1,33 @@
+alias e='exa -lh'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias git='/usr/local/bin/git'
+
+# yarn
+alias y='yarn'
+alias ya='yarn add'
+alias yd='yarn dev'
+alias ys='yarn start'
+
+# npm
+alias n='npm'
+alias ni='npm install'
+alias nr='npm run'
+alias nx='npx'
+
+# pnpm
+alias pn='pnpm'
+alias pni='pnpm install'
+alias pnr='pnpm run'
+alias pnx='pnpx'
+
+# pulp
+alias pl='pulp --psc-package'
+
+# psc-package
+alias pp='psc-package'
+alias ppi='psc-package install'
+
+# lerna
+alias l='lerna'
