@@ -28,7 +28,6 @@ zplug "plugins/rvm", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/pyenv", from:oh-my-zsh
 zplug "plugins/command-not-found", from:oh-my-zsh
-zplug "plugins/heroku", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "agkozak/zsh-z"
 

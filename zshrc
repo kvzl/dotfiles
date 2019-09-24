@@ -3,8 +3,16 @@
 # source $HOME/.antigenrc
 
 # zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+export ZPLUG_HOME="$HOME/.zplug"
+
+# Check if zplug is installed
+if [[ ! -d $ZPLUG_HOME ]]; then
+  git clone https://github.com/zplug/zplug $ZPLUG_HOME
+  source $ZPLUG_HOME/init.zsh && zplug update --self
+else
+  source $ZPLUG_HOME/init.zsh
+fi
+
 source $HOME/.zplugrc
 
 
