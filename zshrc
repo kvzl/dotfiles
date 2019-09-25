@@ -17,7 +17,7 @@ source $HOME/.zplugrc
 
 
 # nvm
-export NVM_DIR="/Users/ucfan/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
@@ -30,32 +30,10 @@ export ANDROID_HOME=~/Library/Android/sdk
 export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 
 
-# tns
-###-tns-completion-start-###
-#if [ -f /Users/ucfan/.tnsrc ]; then
-#    source /Users/ucfan/.tnsrc
-#fi
-###-tns-completion-end-###
-
-
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
 
 fpath+=~/.zfunc
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/ucfan/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/ucfan/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/ucfan/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/ucfan/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
-
-
-# AWS Profile
-export AWS_PROFILE=kevin@evolabs
-# export AWS_PROFILE=kevin.l
-# export AWS_PROFILE=kevin@sandbox
-
 
 
 # emsdk
