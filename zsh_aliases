@@ -31,3 +31,4 @@ alias ppi='psc-package install'
 
 # lerna
 alias l='lerna'
+alias lr='lerna run'
