@@ -1,3 +1,5 @@
+export LANG=en_US.UTF-8
+
 # antigen
 # source /usr/local/share/antigen/antigen.zsh
 # source $HOME/.antigenrc
@@ -17,17 +19,12 @@ source $HOME/.zplugrc
 
 
 # nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 
 # rvm
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-
-# android
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 
 # yarn
@@ -36,36 +33,10 @@ export PATH="$HOME/.yarn/bin:$PATH"
 fpath+=~/.zfunc
 
 
-# emsdk
-export PATH="$HOME/mlib/emsdk-portable:$PATH"
-export EMSDK="$HOME/mlib/emsdk-portable"
-export EM_CONFIG="$HOME/.emscripten"
-
-
-# pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-export PATH="~/.pyenv/bin:$PATH"
-
-export PATH="$HOME/.local/bin:$PATH"
-
-# pyenv-virtualenv
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-
 # zsh
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
-
-
-# opam
-. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-
-# webdev
-export PATH="$HOME/.pub-cache/bin:$PATH"
 
 
 # composer
@@ -89,3 +60,4 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH="$HOME/Scripts:$PATH"
 
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
