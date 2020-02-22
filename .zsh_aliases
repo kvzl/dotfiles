@@ -16,19 +16,6 @@ alias ni='npm install'
 alias nr='npm run'
 alias nx='npx'
 
-# pnpm
-alias pn='pnpm'
-alias pni='pnpm install'
-alias pnr='pnpm run'
-alias pnx='pnpx'
-
-# pulp
-alias pl='pulp --psc-package'
-
-# psc-package
-alias pp='psc-package'
-alias ppi='psc-package install'
-
 # lerna
 alias l='lerna'
 alias lr='lerna run'
