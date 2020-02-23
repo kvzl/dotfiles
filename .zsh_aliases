@@ -19,3 +19,6 @@ alias nx='npx'
 # lerna
 alias l='lerna'
 alias lr='lerna run'
+
+# terraform
+alias tf='terraform'

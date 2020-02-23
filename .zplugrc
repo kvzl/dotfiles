@@ -30,6 +30,8 @@ zplug "plugins/pyenv", from:oh-my-zsh
 zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/vi-mode", from:oh-my-zsh
+zplug "plugins/bundler", from:oh-my-zsh
+zplug "plugins/terraform", from:oh-my-zsh
 zplug "agkozak/zsh-z"
 
 zplug "zdharma/fast-syntax-highlighting"
