@@ -1,4 +1,3 @@
-alias e='exa -lh'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
@@ -11,14 +10,8 @@ alias yd='yarn dev'
 alias ys='yarn start'
 
 # npm
-alias n='npm'
 alias ni='npm install'
 alias nr='npm run'
-alias nx='npx'
-
-# lerna
-alias l='lerna'
-alias lr='lerna run'
 
 # terraform
 alias tf='terraform'

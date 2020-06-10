@@ -31,6 +31,7 @@ zplug "zdharma/fast-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "molovo/tipz"
+zplug "DarrinTisdale/zsh-aliases-exa"
 
 # check if there're plugins that haven't been installed
 if ! zplug check --verbose; then
