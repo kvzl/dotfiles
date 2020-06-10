@@ -53,10 +53,6 @@
     dir                       # current directory
     vcs                       # git status
     command_execution_time    # previous command duration
-    node_version
-    package
-    aws
-    terraform
     # =========================[ Line #2 ]=========================
     newline                   # \n
     virtualenv                # python virtual environment
