@@ -3,39 +3,27 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 
 # theme
-zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
+# zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 
-# zplug denysdovhan/spaceship-zsh-theme, use:spaceship.zsh, from:github, as:theme
-SPACESHIP_PACKAGE_SHOW=false
-SPACESHIP_CHAR_SYMBOL="λ "
-SPACESHIP_BATTERY_SHOW=false
-SPACESHIP_AWS_SHOW=false
-SPACESHIP_PYENV_SHOW=true
-# SPACESHIP_PROMPT_SYMBOL=λ
+# SPACESHIP_PACKAGE_SHOW=false
+# SPACESHIP_CHAR_SYMBOL="λ "
+# SPACESHIP_BATTERY_SHOW=false
+# SPACESHIP_AWS_SHOW=false
+# SPACESHIP_PYENV_SHOW=true
 
 # zplug mafredri/zsh-async, from:github
 # zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
+zplug romkatv/powerlevel10k, as:theme, depth:1
+
 
 # plugins
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/bower", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh
-zplug "plugins/node", from:oh-my-zsh
-zplug "plugins/npm", from:oh-my-zsh
-zplug "plugins/nvm", from:oh-my-zsh
-zplug "plugins/rvm", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
-zplug "plugins/pyenv", from:oh-my-zsh
 zplug "plugins/command-not-found", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/vi-mode", from:oh-my-zsh
 zplug "plugins/bundler", from:oh-my-zsh
-zplug "plugins/terraform", from:oh-my-zsh
 zplug "agkozak/zsh-z"
-
 zplug "zdharma/fast-syntax-highlighting"
-
 zplug "hlissner/zsh-autopair", defer:2
 zplug "zdharma/fast-syntax-highlighting"
 zplug "zsh-users/zsh-autosuggestions"
