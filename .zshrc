@@ -26,12 +26,9 @@ source $HOME/.zplugrc
 
 
 # nvm
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-
-# rvm
-# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # yarn
@@ -54,11 +51,6 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 if [ -f "$HOME/.zsh_aliases" ]; then
 	source "$HOME/.zsh_aliases"
 fi
-
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/ucfan/.nvm/versions/node/v10.13.0/pnpm-global/1/node_modules/.registry.npmjs.org/tabtab/2.2.2/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ucfan/.nvm/versions/node/v10.13.0/pnpm-global/1/node_modules/.registry.npmjs.org/tabtab/2.2.2/node_modules/tabtab/.completions/slss.zsh
-
 
 # doom
 export PATH="$HOME/.emacs.d/bin:$PATH"
