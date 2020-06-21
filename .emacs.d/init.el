@@ -1,19 +1,17 @@
-;; settings
+;; emacs settings
 (menu-bar-mode 0)
 (toggle-scroll-bar 0)
 (tool-bar-mode 0)
 (blink-cursor-mode 0)
 (show-paren-mode)
-(global-display-line-numbers-mode)
-(setq mac-option-modifier 'meta)
-(if (fboundp 'mac-auto-operator-composition-mode)
-    (mac-auto-operator-composition-mode))
+;; (global-display-line-numbers-mode)
 (add-to-list 'default-frame-alist
 	     '(font . "Fira Code-12"))
-(setq-default line-spacing 8)
+(setq-default line-spacing 6)
+(toggle-frame-fullscreen)
 
 
-;; bootstrap straight.el
+;; straight.el
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -27,12 +25,40 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+
 ;; use-package
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
 
-;; theme
+;; mac os
+(cond ((string-equal system-type "darwin")
+       (progn
+         ;; modify option and command key
+         (setq mac-option-modifier 'meta)
+	 (setq mac-option-modifier 'meta)
+	 (if (fboundp 'mac-auto-operator-composition-mode)
+	     (mac-auto-operator-composition-mode))
+
+	 ;; batter copy and paste support for mac os x
+	 (defun copy-from-osx ()
+           (shell-command-to-string "pbpaste"))
+
+         (defun paste-to-osx (text &optional push)
+           (let ((process-connection-type nil))
+             (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+               (process-send-string proc text)
+               (process-send-eof proc))))
+         (setq interprogram-cut-function 'paste-to-osx)
+         (setq interprogram-paste-function 'copy-from-osx)
+
+         ;;(use-package exec-path-from-shell)
+         ;;(when (memq window-system '(mac ns x))
+         ;; (exec-path-from-shell-theme))
+	 )))
+
+
+;; initialize
 (use-package doom-themes
   :config
   ;; Global settings (defaults)
@@ -66,9 +92,7 @@
 (use-package page-break-lines
   :ensure t
   :config
-  ;;(require 'page-break-lines)
-  ;;(global-page-break-lines-mode)
-
+  (global-page-break-lines-mode)
   (use-package dashboard
     :ensure t
     :config
@@ -81,97 +105,26 @@
   )
 
 
-;; treemacs
-(use-package treemacs
-  :ensure t
-  :defer t
-  :init
-  (with-eval-after-load 'winum
-    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+;; neotree
+(use-package neotree
   :config
   (progn
-    (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
-	  treemacs-deferred-git-apply-delay      0.5
-	  treemacs-directory-name-transformer    #'identity
-	  treemacs-display-in-side-window        t
-	  treemacs-eldoc-display                 t
-	  treemacs-file-event-delay              5000
-	  treemacs-file-extension-regex          treemacs-last-period-regex-value
-	  treemacs-file-follow-delay             0.2
-	  treemacs-file-name-transformer         #'identity
-	  treemacs-follow-after-init             t
-	  treemacs-git-command-pipe              ""
-	  treemacs-goto-tag-strategy             'refetch-index
-	  treemacs-indentation                   2
-	  treemacs-indentation-string            " "
-	  treemacs-is-never-other-window         nil
-	  treemacs-max-git-entries               5000
-	  treemacs-missing-project-action        'ask
-	  treemacs-move-forward-on-expand        nil
-	  treemacs-no-png-images                 nil
-	  treemacs-no-delete-other-windows       t
-	  treemacs-project-follow-cleanup        nil
-	  treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
-	  treemacs-position                      'left
-	  treemacs-recenter-distance             0.1
-	  treemacs-recenter-after-file-follow    nil
-	  treemacs-recenter-after-tag-follow     nil
-	  treemacs-recenter-after-project-jump   'always
-	  treemacs-recenter-after-project-expand 'on-distance
-	  treemacs-show-cursor                   nil
-	  treemacs-show-hidden-files             t
-	  treemacs-silent-filewatch              nil
-	  treemacs-silent-refresh                nil
-	  treemacs-sorting                       'alphabetic-asc
-	  treemacs-space-between-root-nodes      t
-	  treemacs-tag-follow-cleanup            t
-	  treemacs-tag-follow-delay              1.5
-	  treemacs-user-mode-line-format         nil
-	  treemacs-user-header-line-format       nil
-	  treemacs-width                         35)
-
-    ;; The default width and height of the icons is 22 pixels. If you are
-    ;; using a Hi-DPI display, uncomment this to double the icon size.
-    ;;(treemacs-resize-icons 44)
-
-    (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode t)
-    (pcase (cons (not (null (executable-find "git")))
-		 (not (null treemacs-python-executable)))
-      (`(t . t)
-       (treemacs-git-mode 'deferred))
-      (`(t . _)
-       (treemacs-git-mode 'simple))))
-  :bind
-  (:map global-map
-	("M-0"       . treemacs-select-window)
-	("C-x t 1"   . treemacs-delete-other-windows)
-	("C-x t t"   . treemacs)
-	("C-x t B"   . treemacs-bookmark)
-	("C-x t C-t" . treemacs-find-file)
-	("C-x t M-t" . treemacs-find-tag)))
-
-(use-package treemacs-evil
-  :after treemacs evil
-  :ensure t)
-
-(use-package treemacs-projectile
-  :after treemacs projectile
-  :ensure t)
-
-(use-package treemacs-icons-dired
-  :after treemacs dired
-  :ensure t
-  :config (treemacs-icons-dired-mode))
+    (setq neo-smart-open t)
+    (setq neo-theme (if (display-graphic-p) 'icons 'nerd))
+    (setq neo-window-fixed-size nil)
+    ;; (setq-default neo-show-hidden-files nil)
+    (global-set-key [f2] 'neotree-toggle)
+    (global-set-key [f8] 'neotree-dir)))
 
 
 ;; evil
 (use-package evil
   :ensure t
-  :init (evil-mode)
+  :init 
+  (setq evil-want-keybinding nil)
+  (setq evil-search-module 'evil-search)
   :config
-  (setq evil-search-module 'evil-search))
+  (evil-mode 1))
 
 (use-package evil-goggles
   :ensure t
@@ -186,6 +139,12 @@
 (use-package evil-multiedit
   :config
   (evil-multiedit-default-keybinds))
+
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config 
+  (evil-collection-init))
 
 
 ;; projectile
@@ -202,12 +161,60 @@
           (lambda ()
             (set-face-background 'mmm-default-submode-face nil)))
 
+
 ;; magit
 (use-package magit
   :ensure t
   :bind (("\C-x g" . magit-status))
   )
 
+
 ;; autopair
 (use-package autopair
-  :config (autopair-global-mode))
+  :config (autopair-global-mode) )
+
+
+;; company
+(use-package company
+  :ensure t
+  :config
+  (progn
+    (add-hook 'after-init-hook 'global-company-mode)))
+
+
+;; linum
+(use-package linum
+  :init
+  (progn
+    (global-linum-mode t)
+    (setq linum-format "%4d  ")
+    (set-face-background 'linum nil)))
+
+
+;; git-gutter-plus
+(use-package git-gutter+
+  :ensure t
+  :init (global-git-gutter+-mode)
+  :config (progn
+            (define-key git-gutter+-mode-map (kbd "C-x n") 'git-gutter+-next-hunk)
+            (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
+            (define-key git-gutter+-mode-map (kbd "C-x v =") 'git-gutter+-show-hunk)
+            (define-key git-gutter+-mode-map (kbd "C-x r") 'git-gutter+-revert-hunks)
+            (define-key git-gutter+-mode-map (kbd "C-x t") 'git-gutter+-stage-hunks)
+            (define-key git-gutter+-mode-map (kbd "C-x c") 'git-gutter+-commit)
+            (define-key git-gutter+-mode-map (kbd "C-x C") 'git-gutter+-stage-and-commit)
+            (define-key git-gutter+-mode-map (kbd "C-x C-y") 'git-gutter+-stage-and-commit-whole-buffer)
+            (define-key git-gutter+-mode-map (kbd "C-x U") 'git-gutter+-unstage-whole-buffer))
+  :diminish (git-gutter+-mode . "gg"))
+
+
+;; highlight-indent-guides
+(use-package highlight-indent-guides
+  :diminish
+  :hook
+  ((prog-mode yaml-mode) . highlight-indent-guides-mode)
+  :custom
+  (highlight-indent-guides-auto-enabled t)
+  (highlight-indent-guides-responsive t)
+  (highlight-indent-guides-method 'character)) ; column
+
