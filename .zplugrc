@@ -24,6 +24,8 @@ zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/bundler", from:oh-my-zsh
 zplug "plugins/nvm", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/kubectl", from:oh-my-zsh
+zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "agkozak/zsh-z"
 zplug "zdharma/fast-syntax-highlighting"
 zplug "hlissner/zsh-autopair", defer:2
@@ -32,6 +34,7 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "molovo/tipz"
 zplug "DarrinTisdale/zsh-aliases-exa"
+zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
 
 # check if there're plugins that haven't been installed
 if ! zplug check --verbose; then
