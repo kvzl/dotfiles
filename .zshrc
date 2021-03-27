@@ -75,3 +75,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # opam configuration
 test -r "$HOME/.opam/opam-init/init.zsh" && . "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null || true
+
+# kubectl krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
