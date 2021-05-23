@@ -8,7 +8,7 @@
 (add-to-list 'default-frame-alist
 	     '(font . "Fira Code-12"))
 (setq-default line-spacing 6)
-(toggle-frame-fullscreen)
+;; (toggle-frame-fullscreen)
 
 
 ;; straight.el
