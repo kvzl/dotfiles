@@ -1,5 +1,8 @@
 window:
-  # decorations: buttonless
+  dimensions:
+    columns: 130
+    lines: 35
+
   padding:
     x: 8
     y: 4
@@ -16,8 +19,9 @@ font:
   bold_italic:
     family: Fira Code
 
-  size: 13
+  size: 12
   use_thin_strokes: true
   offset:
     x: 0
     y: 3
+
