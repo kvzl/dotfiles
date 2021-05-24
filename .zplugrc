@@ -1,4 +1,4 @@
-ZSH_TMUX_AUTOSTART=true
+# ZSH_TMUX_AUTOSTART=true
 export NVM_LAZY_LOAD=true
 
 # manage zplug itself
