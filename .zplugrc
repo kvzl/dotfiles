@@ -1,3 +1,5 @@
+ZSH_TMUX_AUTOSTART=true
+
 # manage zplug itself
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
