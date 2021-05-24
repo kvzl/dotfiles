@@ -1,4 +1,5 @@
 ZSH_TMUX_AUTOSTART=true
+export NVM_LAZY_LOAD=true
 
 # manage zplug itself
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
@@ -20,24 +21,22 @@ zplug romkatv/powerlevel10k, as:theme, depth:1
 
 
 # plugins
-zplug "plugins/pip", from:oh-my-zsh
-zplug "plugins/command-not-found", from:oh-my-zsh
+# zplug "plugins/pip", from:oh-my-zsh
+# zplug "plugins/bundler", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/bundler", from:oh-my-zsh
-zplug "plugins/nvm", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/kubectl", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "plugins/gcloud", from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
 zplug "agkozak/zsh-z"
 zplug "zdharma/fast-syntax-highlighting"
 zplug "hlissner/zsh-autopair", defer:2
-zplug "zdharma/fast-syntax-highlighting"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-completions"
 zplug "molovo/tipz"
 zplug "DarrinTisdale/zsh-aliases-exa"
 zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
+zplug "lukechilds/zsh-nvm"
 
 # check if there're plugins that haven't been installed
 if ! zplug check --verbose; then
