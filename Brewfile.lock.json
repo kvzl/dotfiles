@@ -174,7 +174,7 @@
     },
     "tap": {
       "homebrew/cask": {
-        "revision": "5e2bced8b623e90a882ebee9fc183001367992c5"
+        "revision": "f3fcb07db8d0c9e1c65c40eeecc1f6b6f2d8fbf9"
       },
       "hashicorp/tap": {
         "revision": "7d557ec0a72ab11be570179f2b6f75d981375a0d"
@@ -293,6 +293,16 @@
             "require_sha": true
           }
         }
+      },
+      "tableplus": {
+        "version": "4.0.2,374",
+        "options": {
+          "full_name": "tableplus",
+          "args": {
+            "appdir": "~/Applications",
+            "require_sha": true
+          }
+        }
       }
     }
   },
@@ -301,7 +311,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "3.2.6",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "8badadc7cfbdd1d4a670406595fe6ff7eb24ae74",
+        "Homebrew/homebrew-core": "d0594785d1cce0e5adfdac59b3f170ef64344b36",
         "CLT": "12.5.1.0.1.1623191612",
         "Xcode": "12.5",
         "macOS": "11.5.1"

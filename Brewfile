@@ -13,6 +13,7 @@ cask "obsidian"
 cask "emacs"
 cask "clipy"
 cask "snipaste"
+cask "tableplus"
 
 tap "hashicorp/tap"
 brew "terraform"
