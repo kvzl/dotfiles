@@ -533,6 +533,16 @@
             "require_sha": true
           }
         }
+      },
+      "bartender": {
+        "version": "4.0.48,40048",
+        "options": {
+          "full_name": "bartender",
+          "args": {
+            "appdir": "~/Applications",
+            "require_sha": true
+          }
+        }
       }
     }
   },
