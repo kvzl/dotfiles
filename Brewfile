@@ -1,6 +1,11 @@
 brew "neovim"
 brew "exa"
 brew "git"
+brew "awscli"
+brew "jq"
+brew "nvm"
+brew "pipenv"
+brew "go"
 
 # casks
 tap "homebrew/cask"
@@ -14,10 +19,16 @@ cask "emacs"
 cask "clipy"
 cask "snipaste"
 cask "tableplus"
+cask "aws-vault"
+cask "google-cloud-sdk", args: { require_sha: false }
+cask "virtualbox"
+cask "docker"
+cask "lens"
 
 tap "hashicorp/tap"
 brew "terraform"
 brew "packer"
+cask "vagrant"
 
 tap "homebrew/cask-fonts"
 cask "font-jetbrains-mono"
