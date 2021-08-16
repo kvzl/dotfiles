@@ -13,7 +13,7 @@ cask_args appdir: "~/Applications", require_sha: true
 
 cask "visual-studio-code"
 cask "microsoft-edge"
-cask "raycast"
+cask "raycast", args: { require_sha: false }
 cask "obsidian"
 cask "emacs"
 cask "clipy"
@@ -25,6 +25,7 @@ cask "virtualbox"
 cask "docker"
 cask "lens"
 cask "bartender"
+cask "iterm2"
 
 tap "hashicorp/tap"
 brew "terraform"
