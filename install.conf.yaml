@@ -16,6 +16,7 @@
     ~/.p10k.zsh: .p10k.zsh
     ~/.emacs.d: .emacs.d
     ~/.alacritty.yml: .alacritty.yml
+    ~/.terraformrc: .terraformrc
 
 - create:
     - ~/Scripts
