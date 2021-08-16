@@ -67,6 +67,8 @@
     # virtualenv              # python virtual environment
     # context                 # user@host
     # time                    # current time
+    terraform
+    aws
     # =========================[ Line #2 ]=========================
     newline                   # \n
   )

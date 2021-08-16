@@ -37,6 +37,8 @@ zplug "molovo/tipz"
 zplug "DarrinTisdale/zsh-aliases-exa"
 zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
 zplug "lukechilds/zsh-nvm"
+zplug "blimmer/zsh-aws-vault"
+
 
 # check if there're plugins that haven't been installed
 if ! zplug check --verbose; then
