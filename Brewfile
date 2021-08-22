@@ -6,7 +6,7 @@ brew "jq"
 brew "nvm"
 brew "pipenv"
 brew "go"
-brew "terragrunt"
+brew "terragrunt", args: ["ignore-dependencies"]
 
 # casks
 tap "homebrew/cask"
