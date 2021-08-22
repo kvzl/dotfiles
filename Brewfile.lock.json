@@ -334,13 +334,13 @@
     },
     "tap": {
       "homebrew/cask": {
-        "revision": "5c7fdb559a9ce50d135aa9e36d80c85ec445d25e"
+        "revision": "d6897f8ef0b0475a0134f8861a01328f1ec77adc"
       },
       "hashicorp/tap": {
         "revision": "8fd6b41a3db7406e8b0c293d41ae1e44bcf6a073"
       },
       "homebrew/cask-fonts": {
-        "revision": "2103f5cd4011426dcca46b00c5aed2feaeb19815"
+        "revision": "7fa960be970c7decb598b683a6597cbff94bdbad"
       }
     },
     "cask": {
@@ -405,7 +405,7 @@
         }
       },
       "snipaste": {
-        "version": "2.6.6-Beta",
+        "version": "2.6.6-Beta2",
         "options": {
           "full_name": "snipaste",
           "args": {
@@ -455,7 +455,7 @@
         }
       },
       "tableplus": {
-        "version": "4.0.2,374",
+        "version": "4.1.0,376",
         "options": {
           "full_name": "tableplus",
           "args": {
@@ -549,9 +549,9 @@
   "system": {
     "macos": {
       "big_sur": {
-        "HOMEBREW_VERSION": "3.2.6-123-g0e63fb8",
+        "HOMEBREW_VERSION": "3.2.7-8-g90494ed",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "cf13fbe7910509b803589abf974a725d9f6bf4ab",
+        "Homebrew/homebrew-core": "954635bbc0fae39d5d3bcb0dc474b31aeda59e3a",
         "CLT": "12.5.0.22.9",
         "Xcode": "12.5",
         "macOS": "11.4"

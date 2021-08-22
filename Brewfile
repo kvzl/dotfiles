@@ -6,6 +6,7 @@ brew "jq"
 brew "nvm"
 brew "pipenv"
 brew "go"
+brew "terragrunt"
 
 # casks
 tap "homebrew/cask"
