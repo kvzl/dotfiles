@@ -16,3 +16,4 @@ alias nr='npm run'
 # terraform
 alias tf='terraform'
 alias tfw='terraform workspace'
+alias tfia='terraform init && terraform apply'
