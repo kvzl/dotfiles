@@ -7,6 +7,8 @@ brew "nvm"
 brew "pipenv"
 brew "go"
 brew "terragrunt", args: ["ignore-dependencies"]
+brew "pre-commit"
+brew "terraform-docs"
 
 # casks
 tap "homebrew/cask"
