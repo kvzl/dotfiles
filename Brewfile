@@ -9,6 +9,7 @@ brew "go"
 brew "terragrunt", args: ["ignore-dependencies"]
 brew "pre-commit"
 brew "terraform-docs"
+brew "direnv"
 
 # casks
 tap "homebrew/cask"

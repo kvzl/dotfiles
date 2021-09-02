@@ -30,7 +30,7 @@ source $HOME/.zplugrc
 # nvm
 # NODE_VERSION=v14.8.0
 # export PATH="$HOME/.nvm/versions/node/$NODE_VERSION/bin:$PATH"
-# 
+#
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -83,5 +83,8 @@ test -r "$HOME/.opam/opam-init/init.zsh" && . "$HOME/.opam/opam-init/init.zsh" >
 
 # kubectl krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# direnv
+eval "$(direnv hook zsh)"
 
 # zprof
