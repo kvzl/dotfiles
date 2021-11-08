@@ -10,6 +10,7 @@ brew "terragrunt", args: ["ignore-dependencies"]
 brew "pre-commit"
 brew "terraform-docs"
 brew "direnv"
+brew "neofetch"
 
 # casks
 tap "homebrew/cask"

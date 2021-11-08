@@ -7,6 +7,7 @@ window:
   padding:
     x: 8
     y: 4
+  dynamic_padding: false
 
 background_opacity: 0.97
 
