@@ -11,6 +11,7 @@ brew "pre-commit"
 brew "terraform-docs"
 brew "direnv"
 brew "neofetch"
+brew "k6"
 
 # casks
 tap "homebrew/cask"
