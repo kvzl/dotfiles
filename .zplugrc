@@ -31,7 +31,7 @@ zplug "plugins/gcloud", from:oh-my-zsh
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "agkozak/zsh-z"
-zplug "zdharma/fast-syntax-highlighting"
+zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "hlissner/zsh-autopair", defer:2
 zplug "molovo/tipz"
 zplug "DarrinTisdale/zsh-aliases-exa"
