@@ -10,6 +10,7 @@ brew "pre-commit"
 brew "terraform-docs"
 brew "neofetch"
 brew "k6"
+brew 'ripgrep'
 
 # casks
 tap "homebrew/cask"
