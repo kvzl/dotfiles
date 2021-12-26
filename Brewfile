@@ -28,6 +28,7 @@ cask "google-cloud-sdk", args: { require_sha: false }
 cask "docker"
 cask "bartender"
 cask "iterm2"
+cask "kitty"
 
 tap "hashicorp/tap"
 brew "terraform"
