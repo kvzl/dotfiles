@@ -63,3 +63,4 @@ flycheck_*.el
 # exclude directory in .config
 .config/*
 !.config/nvim/init.vim
+!.config/kitty
