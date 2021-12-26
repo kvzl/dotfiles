@@ -84,9 +84,6 @@ test -r "$HOME/.opam/opam-init/init.zsh" && . "$HOME/.opam/opam-init/init.zsh" >
 # kubectl krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# direnv
-eval "$(direnv hook zsh)"
-
 # disable dotnet cli telemetry
 DOTNET_CLI_TELEMETRY_OPTOUT=1
 
