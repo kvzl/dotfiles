@@ -25,7 +25,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-one)
+
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -54,7 +55,7 @@
 ;; they are implemented.
 
 
-;;(setq-default line-spacing 6)
+(setq-default line-spacing 2)
 
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 (setq doom-themes-treemacs-theme "doom-colors")
