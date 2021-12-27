@@ -29,6 +29,7 @@ cask "docker"
 cask "bartender"
 cask "iterm2"
 cask "kitty"
+cask "amethyst"
 
 tap "hashicorp/tap"
 brew "terraform"

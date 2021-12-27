@@ -652,13 +652,13 @@
     },
     "tap": {
       "homebrew/cask": {
-        "revision": "797c591d48c2df097b6d7e7039a46854f6766f35"
+        "revision": "110996876b1582e842be86c35ac05781e93ae9c5"
       },
       "hashicorp/tap": {
         "revision": "480bb96a30700c5a52802922c7118c136e2831a4"
       },
       "homebrew/cask-fonts": {
-        "revision": "1277346c783a139204964236c58c2a40e9a07f07"
+        "revision": "5c964785b19b5c25d823fa990eb79791f962bca3"
       }
     },
     "cask": {
@@ -871,6 +871,16 @@
             "require_sha": true
           }
         }
+      },
+      "amethyst": {
+        "version": "0.15.5",
+        "options": {
+          "full_name": "amethyst",
+          "args": {
+            "appdir": "~/Applications",
+            "require_sha": true
+          }
+        }
       }
     }
   },
@@ -887,7 +897,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.3.9-42-gd1a8199",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "9084eb67d183c93afc9218527c39e6f45db73c36",
+        "Homebrew/homebrew-core": "22d4b5017d78d949c47beb126f6f2c97a0ee3c60",
         "CLT": "13.1.0.0.1.1633545042",
         "Xcode": "13.1",
         "macOS": "12.0.1"
