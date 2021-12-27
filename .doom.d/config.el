@@ -55,7 +55,7 @@
 ;; they are implemented.
 
 
-(setq-default line-spacing 2)
+(setq-default line-spacing 4)
 
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 (setq doom-themes-treemacs-theme "doom-colors")
