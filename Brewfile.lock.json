@@ -652,13 +652,13 @@
     },
     "tap": {
       "homebrew/cask": {
-        "revision": "110996876b1582e842be86c35ac05781e93ae9c5"
+        "revision": "6a424149ee8f411403ae9f5e74c3689c9c4459f7"
       },
       "hashicorp/tap": {
         "revision": "480bb96a30700c5a52802922c7118c136e2831a4"
       },
       "homebrew/cask-fonts": {
-        "revision": "5c964785b19b5c25d823fa990eb79791f962bca3"
+        "revision": "bde973155c85db8415f66cdd84ae221d425b580d"
       }
     },
     "cask": {
@@ -887,12 +887,12 @@
   "system": {
     "macos": {
       "big_sur": {
-        "HOMEBREW_VERSION": "3.2.10-52-g034d4ac",
+        "HOMEBREW_VERSION": "3.3.9",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "a5a7601e04a9d386648aabd6a02610d68b11f541",
-        "CLT": "12.5.0.22.9",
-        "Xcode": "12.5",
-        "macOS": "11.4"
+        "Homebrew/homebrew-core": "ef4ea943b23bd1fedec39fe6442b0e6595e0ffdd",
+        "CLT": "12.5.1.0.1.1623191612",
+        "Xcode": "12.5.1",
+        "macOS": "11.5.1"
       },
       "monterey": {
         "HOMEBREW_VERSION": "3.3.9-42-gd1a8199",
