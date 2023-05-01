@@ -21,7 +21,7 @@ brew "bat"
 brew "skaffold"
 brew "tmux"
 brew "pyenv"
-brew "k8d"
+brew "k3d"
 
 # casks
 tap "homebrew/cask"
