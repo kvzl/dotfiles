@@ -18,6 +18,7 @@ brew "fzf"
 brew "helm"
 brew "bat"
 brew "skaffold"
+brew "tmux"
 
 # casks
 tap "homebrew/cask"
@@ -37,6 +38,7 @@ cask "bartender"
 cask "iterm2"
 cask "kitty"
 cask "amethyst"
+cask "lens"
 
 tap "hashicorp/tap"
 brew "terraform"
