@@ -1,3 +1,4 @@
+brew "wget"
 brew "neovim"
 brew "exa"
 brew "git"
@@ -19,6 +20,8 @@ brew "helm"
 brew "bat"
 brew "skaffold"
 brew "tmux"
+brew "pyenv"
+brew "k8d"
 
 # casks
 tap "homebrew/cask"
