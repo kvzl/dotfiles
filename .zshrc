@@ -87,4 +87,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # disable dotnet cli telemetry
 DOTNET_CLI_TELEMETRY_OPTOUT=1
 
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+
 # zprof

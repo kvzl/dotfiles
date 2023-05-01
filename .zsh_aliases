@@ -1,7 +1,6 @@
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias git='/usr/local/bin/git'
 
 # yarn
 alias y='yarn'
