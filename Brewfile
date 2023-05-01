@@ -10,7 +10,14 @@ brew "pre-commit"
 brew "terraform-docs"
 brew "neofetch"
 brew "k6"
-brew 'ripgrep'
+brew "ripgrep"
+brew "minikube"
+brew "tree"
+brew "git-delta"
+brew "fzf"
+brew "helm"
+brew "bat"
+brew "skaffold"
 
 # casks
 tap "homebrew/cask"
@@ -40,3 +47,8 @@ cask "font-jetbrains-mono"
 cask "font-fira-code"
 cask "font-cascadia-mono"
 cask "font-cascadia-code"
+cask "font-hack-nerd-font"
+
+tap "mutagen-io/mutagen"
+brew "mutagen"
+
