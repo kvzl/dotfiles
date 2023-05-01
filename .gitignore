@@ -56,8 +56,9 @@ flycheck_*.el
 !.tmux/plugins/tpm
 .tmux/resurrect
 
-# vim plugins (excluding vundle)
+# vim plugins
 .vim/bundle/*
+.vim/plugged/*
 !.vim/bundle/Vundle.vim
 
 # exclude directory in .config
