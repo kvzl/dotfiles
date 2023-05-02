@@ -5,24 +5,8 @@ export NVM_LAZY_LOAD=true
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 
-# theme
-# zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
-
-# SPACESHIP_PACKAGE_SHOW=false
-# SPACESHIP_CHAR_SYMBOL="λ "
-# SPACESHIP_BATTERY_SHOW=false
-# SPACESHIP_AWS_SHOW=false
-# SPACESHIP_PYENV_SHOW=true
-
-# zplug mafredri/zsh-async, from:github
-# zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
-
-zplug romkatv/powerlevel10k, as:theme, depth:1
-
-
 # plugins
-# zplug "plugins/pip", from:oh-my-zsh
-# zplug "plugins/bundler", from:oh-my-zsh
+zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/kubectl", from:oh-my-zsh
@@ -36,7 +20,7 @@ zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "hlissner/zsh-autopair", defer:2
 zplug "molovo/tipz"
 zplug "DarrinTisdale/zsh-aliases-exa"
-zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
+zplug "MichaelAquilina/zsh-autoswitch-virtualenv", defer:2
 zplug "lukechilds/zsh-nvm"
 zplug "blimmer/zsh-aws-vault"
 

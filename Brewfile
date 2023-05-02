@@ -22,6 +22,7 @@ brew "skaffold"
 brew "tmux"
 brew "pyenv"
 brew "k3d"
+brew "kubecm"
 
 # casks
 tap "homebrew/cask"
@@ -56,4 +57,6 @@ cask "font-hack-nerd-font"
 
 tap "mutagen-io/mutagen"
 brew "mutagen"
+brew "mutagen/mutagen-compose"
+
 

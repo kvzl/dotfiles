@@ -1,5 +1,8 @@
 # zmodload zsh/zprof
 
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -9,9 +12,6 @@ fi
 
 export LANG=en_US.UTF-8
 
-# antigen
-# source /usr/local/share/antigen/antigen.zsh
-# source $HOME/.antigenrc
 
 # zplug
 export ZPLUG_HOME="$HOME/.zplug"
@@ -25,15 +25,6 @@ else
 fi
 
 source $HOME/.zplugrc
-
-
-# nvm
-# NODE_VERSION=v14.8.0
-# export PATH="$HOME/.nvm/versions/node/$NODE_VERSION/bin:$PATH"
-#
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 # yarn
@@ -87,7 +78,5 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # disable dotnet cli telemetry
 DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-
 # zprof
+
