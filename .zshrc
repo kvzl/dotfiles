@@ -80,3 +80,4 @@ DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # zprof
 
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
