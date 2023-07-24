@@ -15,7 +15,6 @@
     ~/.zshrc: .zshrc
     ~/.p10k.zsh: .p10k.zsh
     ~/.emacs.d: .emacs.d
-    ~/.doom.d: .doom.d
     ~/.alacritty.yml: .alacritty.yml
     ~/.terraformrc: .terraformrc
 
@@ -25,8 +24,3 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
-  -
-    command: ~/.emacs.d/bin/doom sync
-    description: Initializing doom emacs
-    stdout: true
-    quiet: false
