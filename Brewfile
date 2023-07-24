@@ -1,3 +1,4 @@
+brew "cmake"
 brew "wget"
 brew "neovim"
 brew "exa"
@@ -23,6 +24,16 @@ brew "tmux"
 brew "pyenv"
 brew "k3d"
 brew "kubecm"
+brew "hadolint"
+brew "rust-analyzer"
+
+# for dirvish
+brew "coreutils"
+brew "fd"
+brew "poppler"
+brew "ffmpegthumbnailer"
+brew "mediainfo"
+brew "imagemagick"
 
 # casks
 tap "homebrew/cask"
@@ -47,6 +58,7 @@ cask "lens"
 tap "hashicorp/tap"
 brew "terraform"
 brew "packer"
+brew "hashicorp/tap/terraform-ls"
 
 tap "homebrew/cask-fonts"
 cask "font-jetbrains-mono"
@@ -59,4 +71,5 @@ tap "mutagen-io/mutagen"
 brew "mutagen"
 brew "mutagen/mutagen-compose"
 
-
+tap "railwaycat/emacsmacport"
+brew "emacs-mac-spacemacs-icon"
