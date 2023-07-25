@@ -35,7 +35,6 @@
 ;; Disable line numbers for some modes
 (dolist (mode '(term-mode-hook
                 shell-mode-hook
-                treemacs-mode-hook
                 eshell-mode-hook
 		vterm-mode-hook
 		dired-mode-hook))
@@ -105,7 +104,7 @@
   (evil-define-key 'normal vterm-mode-map (kbd "<return>") #'evil-insert-resume)
 
   :bind
-  ("M-j" . multi-vterm-project))
+  ("C-`" . multi-vterm-project))
 
 (use-package dashboard
   :after all-the-icons
@@ -257,11 +256,7 @@
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
-  ;; or for treemacs users
-  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-  (doom-themes-treemacs-config)
+
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
@@ -325,25 +320,8 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
-
-(use-package treemacs
-  :defer t)
-
-(use-package treemacs-evil
-  :after (treemacs evil))
-
-(use-package treemacs-projectile
-  :after (treemacs projectile))
-
-(use-package treemacs-icons-dired
-  :hook
-  (dired-mode . treemacs-icons-dired-enable-once))
-
-(use-package treemacs-magit
-  :after (treemacs magit))
-
 (use-package dirvish
-  :defer
+  :defer t
   :init
   (dirvish-override-dired-mode))
 
@@ -362,7 +340,7 @@
 (use-package centaur-tabs
   :demand
   :init
-  (setq centaur-tabs-set-icons t) 
+  (setq centaur-tabs-set-icons t)
   (setq centaur-tabs-height 24)
   (setq centaur-tabs-set-bar 'left)
   (setq centaur-tabs-enable-key-bindings t)
@@ -394,7 +372,13 @@
   :commands lsp)
 
 (use-package lsp-ui
-  :commands lsp-ui-mode)
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-ui-sideline-show-diagnostics t)
+  (setq lsp-ui-sideline-show-hover t)
+  (setq lsp-ui-sideline-show-code-actions t)
+  (setq lsp-ui-sideline-update-mode 'line)
+  (setq lsp-ui-sideline-delay 0.5))
 
 (use-package lsp-treemacs
   :commands lsp-treemacs-errors-list)
@@ -435,7 +419,7 @@
 ;; Global key bindings
 ;;
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; Make ESC quit prompts
-(global-set-key (kbd "M-/") 'comment-or-uncomment-region) 
+(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 
 (defun open-user-config ()
   (interactive)
