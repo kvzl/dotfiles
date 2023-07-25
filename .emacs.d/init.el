@@ -304,17 +304,6 @@
 (use-package company-box
   :hook (company-mode . company-box-mode))
 
-(use-package projectile
-  :diminish projectile-mode
-  :config (projectile-mode)
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :init
-  ;; NOTE: Set this to the folder where you keep your Git repos!
-  (when (file-directory-p "~/Dev")
-    (setq projectile-project-search-path '("~/Dev")))
-  (setq projectile-switch-project-action #'projectile-dired))
-
 (use-package magit
   :commands magit-status
   :custom
@@ -353,9 +342,7 @@
         ("g n" . centaur-tabs-forward)
         ("g p" . centaur-tabs-backward)
 	("g c" . centaur-tabs--create-new-empty-buffer)
-	("g W" . centaur-tabs-switch-group)
-	("g P" . centaur-tabs-group-by-projectile-project)))
-
+	("g W" . centaur-tabs-switch-group)))
 
 (use-package lsp-mode
   :init
