@@ -1,6 +1,7 @@
 # zmodload zsh/zprof
 
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -54,15 +55,12 @@ export PATH="$HOME/.emacs.d/bin:$PATH"
 # custom scripts
 export PATH="$HOME/Scripts:$PATH"
 
-# shopify
-[ -f "$HOME/.shopify-app-cli/shopify.sh" ] && source "$HOME/.shopify-app-cli/shopify.sh"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Use vim keybinding
-bindkey -v
-export KEYTIMEOUT=1
+#bindkey -v
+#export KEYTIMEOUT=1
 
 # sdkman
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -79,5 +77,3 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # zprof
-
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
