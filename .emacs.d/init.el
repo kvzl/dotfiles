@@ -1,6 +1,8 @@
 ;;; -*- lexical-binding: t; -*-
 
 ;; misc
+(setq use-package-verbose t)
+
 (setq confirm-kill-processes nil)
 
 (when (string= system-type "darwin")
@@ -202,8 +204,6 @@
    ;; :preview-key "M-."
    :preview-key '(:debounce 0.4 any))
   )
-
-(use-package consult-lsp)
 
 (use-package all-the-icons
   :if (display-graphic-p))
