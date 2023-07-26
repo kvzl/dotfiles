@@ -1,6 +1,8 @@
 **/*.rendered
 
 # emacs
+.emacs.d
+!.emacs.d/init.el
 
 # -*- mode: gitignore; -*-
 *~

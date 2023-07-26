@@ -311,6 +311,29 @@
 
 (use-package dirvish
   :defer t
+
+  :config
+  (setq dirvish-attributes
+	'(vc-state
+	  subtree-state
+	  all-the-icons
+	  collapse
+	  git-msg
+	  file-time
+	  file-size))
+
+  (setq dirvish-header-line-format
+	'(:left
+	  (path)
+	  :right
+	  (free-space)))
+
+  (setq dirvish-mode-line-format
+	'(:left
+	  (sort file-time " " file-size symlink)
+	  :right
+	  (omit yank index)))
+
   :init
   (dirvish-override-dired-mode))
 
