@@ -25,7 +25,6 @@ brew "pyenv"
 brew "k3d"
 brew "kubecm"
 brew "hadolint"
-brew "rust-analyzer"
 
 # for dirvish
 brew "coreutils"
@@ -58,7 +57,6 @@ cask "lens"
 tap "hashicorp/tap"
 brew "terraform"
 brew "packer"
-brew "hashicorp/tap/terraform-ls"
 
 tap "homebrew/cask-fonts"
 cask "font-jetbrains-mono"
@@ -73,4 +71,9 @@ brew "mutagen-compose"
 
 tap "d12frosted/emacs-plus"
 brew "emacs-plus@29", args: ["with-imagemagick", "with-xwidgets", "with-poll", "with-native-comp", "with-savchenkovaleriy-big-sur-icon"]
+
+# language-servers
+brew "rust-analyzer"
+brew "hashicorp/tap/terraform-ls"
+brew "typescript-language-server"
 
