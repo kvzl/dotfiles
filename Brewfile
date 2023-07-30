@@ -72,5 +72,5 @@ brew "mutagen"
 brew "mutagen-compose"
 
 tap "d12frosted/emacs-plus"
-brew "emacs-plus@29", args: ["with-imagemagick", "with-xwidgets", "with-poll", "with-native-comp"]
+brew "emacs-plus@29", args: ["with-imagemagick", "with-xwidgets", "with-poll", "with-native-comp", "with-savchenkovaleriy-big-sur-icon"]
 

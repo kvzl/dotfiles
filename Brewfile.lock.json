@@ -1695,7 +1695,8 @@
             "with-imagemagick",
             "with-xwidgets",
             "with-poll",
-            "with-native-comp"
+            "with-native-comp",
+            "with-savchenkovaleriy-big-sur-icon"
           ]
         }
       }
