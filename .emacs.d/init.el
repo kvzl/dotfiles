@@ -380,6 +380,12 @@
   (terraform-mode . eglot-ensure)
   (rust-ts-mode . eglot-ensure))
 
+(use-package markdown-mode
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown")
+  :bind (:map markdown-mode-map
+         ("C-c C-e" . markdown-do)))
+
 (use-package yaml-mode
   :defer t)
 
