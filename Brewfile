@@ -69,7 +69,8 @@ cask "font-hack-nerd-font"
 
 tap "mutagen-io/mutagen"
 brew "mutagen"
-brew "mutagen/mutagen-compose"
+brew "mutagen-compose"
 
-tap "railwaycat/emacsmacport"
-brew "emacs-mac-spacemacs-icon"
+tap "d12frosted/emacs-plus"
+brew "emacs-plus@29", args: ["with-imagemagick", "with-xwidgets", "with-poll", "with-native-comp"]
+
