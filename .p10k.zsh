@@ -67,10 +67,11 @@
     # virtualenv              # python virtual environment
     # context                 # user@host
     # time                    # current time
-    terraform
-    aws
+    kubecontext
     # =========================[ Line #2 ]=========================
     newline                   # \n
+    terraform
+    aws
   )
 
   # Basic style options that define the overall prompt look.
