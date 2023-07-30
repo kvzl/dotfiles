@@ -378,7 +378,8 @@
   (add-to-list 'eglot-server-programs '(terraform-mode . ("terraform-ls" "serve")))
   :hook
   (terraform-mode . eglot-ensure)
-  (rust-ts-mode . eglot-ensure))
+  (rust-ts-mode . eglot-ensure)
+  (typescript-ts-mode . eglot-ensure))
 
 (use-package markdown-mode
   :mode ("README\\.md\\'" . gfm-mode)
