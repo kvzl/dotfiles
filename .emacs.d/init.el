@@ -62,6 +62,7 @@
 
 (setq straight-use-package-by-default 1)
 (straight-use-package 'use-package)
+(add-to-list 'straight-built-in-pseudo-packages 'eglot)
 
 ;; Manage packages with use-package
 (require 'use-package)
@@ -187,11 +188,6 @@
 	 ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
 	 ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
 	 ("M-s L" . consult-line-multi)            ;; needed by consult-line to detect isearch
-
-	 ;; Minibuffer history
-	 :map minibuffer-local-map
-	 ("M-s" . consult-history)                 ;; orig. next-matching-history-element
-	 ("M-r" . consult-history)                ;; orig. previous-matching-history-element
 	 )
 
   :config
@@ -290,8 +286,6 @@
   (global-evil-surround-mode 1))
 
 
-;;(use-package eglot)
-
 (use-package company
   :bind (:map company-active-map
               ("<tab>" . company-complete-selection))
@@ -367,39 +361,25 @@
 	("g c" . centaur-tabs--create-new-empty-buffer)
 	("g W" . centaur-tabs-switch-group)))
 
-(use-package lsp-mode
-  :init
-  ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
-  (setq lsp-keymap-prefix "C-c l")
-  (setq lsp-disabled-clients '(tfls))
-  (setq read-process-output-max (* 1024 1024)) ;; 1mb
-  (setq gc-cons-threshold 100000000)
-  (add-to-list 'image-types 'svg)
-
-  :hook ((terraform-mode . lsp)
-	 (fsharp-mode . lsp)
-         ;; if you want which-key integration
-         (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
-
-(use-package lsp-ui
-  :commands lsp-ui-mode
-  :config
-  (setq lsp-ui-sideline-show-diagnostics t)
-  (setq lsp-ui-sideline-show-hover t)
-  (setq lsp-ui-sideline-show-code-actions t)
-  (setq lsp-ui-sideline-update-mode 'line)
-  (setq lsp-ui-sideline-delay 0.5))
-
-(use-package lsp-treemacs
-  :commands lsp-treemacs-errors-list)
-
-(use-package flycheck
-  :init (global-flycheck-mode))
-
 ;;
 ;; Language modes
 ;;
+
+(use-package 
+  treesit-auto
+  :demand t
+  :config
+  (setq treesit-auto-install 'prompt)
+  (global-treesit-auto-mode))
+
+(use-package eglot
+  :config
+  (add-to-list 'eglot-server-programs '(rust-ts-mode . ("rust-analyzer")))
+  (add-to-list 'eglot-server-programs '(terraform-mode . ("terraform-ls" "serve")))
+  :hook
+  (terraform-mode . eglot-ensure)
+  (rust-ts-mode . eglot-ensure))
+
 (use-package yaml-mode
   :defer t)
 
@@ -423,8 +403,7 @@
   :config
   (setq rust-format-on-save t)
   :hook
-  (rust-mode . prettify-symbols-mode)
-  (rust-mode . lsp-deferred))
+  (rust-mode . prettify-symbols-mode))
 
 ;; 
 ;; Global key bindings
