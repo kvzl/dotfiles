@@ -374,6 +374,7 @@
   (setq lsp-disabled-clients '(tfls))
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
   (setq gc-cons-threshold 100000000)
+  (add-to-list 'image-types 'svg)
 
   :hook ((terraform-mode . lsp)
 	 (fsharp-mode . lsp)
@@ -438,3 +439,8 @@
 (require 'bind-key)
 (bind-key* "M-," 'open-user-config)
 
+;; set keys for Apple keyboard, for emacs in OS X
+(setq mac-command-modifier 'meta) ; make cmd key do Meta
+(setq mac-option-modifier 'super) ; make opt key do Super
+(setq mac-control-modifier 'control) ; make Control key do Control
+(setq ns-function-modifier 'hyper)  ; make Fn key do Hyper
