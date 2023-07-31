@@ -1,0 +1,26 @@
+#+TITLE: dotfiles
+
+** Environment
+
+Currently:
+- OS: +Emacs+ macOS ARM
+- Terminal: Kitty
+- Shell: Zsh + Zplug + p10k
+- Editor: Emacs
+- Package manager: Homebrew
+- Dotfile manager: Dotbot
+
+Not in use:
+- Alacritty
+- Neovim
+- Tmux
+- iTerm2
+
+** Installation
+
+Install [[https://brew.sh/][Homebrew]] and run the following command:
+
+#+begin_src shell
+  brew bundle
+#+end_src
+
