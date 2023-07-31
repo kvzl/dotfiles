@@ -403,6 +403,16 @@
   (electric-pair-mode +1)
   (setq electric-pair-preserve-balance nil))
 
+(use-package kubernetes
+  :defer 2
+  :commands (kubernetes-overview)
+  :config
+  (setq kubernetes-poll-frequency 3600
+        kubernetes-redraw-frequency 3600))
+
+(use-package kubernetes-evil
+  :after kubernetes)
+
 
 ;;
 ;; Language modes
