@@ -4,11 +4,11 @@
 
 Currently:
 - OS: +Emacs+ macOS ARM
-- Terminal: Kitty
-- Shell: Zsh + Zplug + p10k
-- Editor: Emacs
-- Package manager: Homebrew
-- Dotfile manager: Dotbot
+- Terminal: [[https://sw.kovidgoyal.net/kitty/][Kitty]]
+- Shell: Zsh + [[https://github.com/zplug/zplug][Zplug]] + [[https://github.com/romkatv/powerlevel10k][p10k]]
+- Editor: Emacs ([[https://github.com/d12frosted/homebrew-emacs-plus][emacs-plus]] for macOS)
+- Package manager: [[https://brew.sh/][Homebrew]] + [[https://github.com/Homebrew/homebrew-bundle][Brewfile]]
+- Dotfile manager: [[https://github.com/anishathalye/dotbot][Dotbot]]
 
 Not in use:
 - Alacritty
@@ -18,7 +18,22 @@ Not in use:
 
 ** Installation
 
-Install [[https://brew.sh/][Homebrew]] and run the following command:
+Get the dotfiles:
+
+#+begin_src shell
+  git clone git@github.com:kvzl/dotfiles.git
+  cd dotfiles
+#+end_src
+
+
+Initialize [[https://github.com/anishathalye/dotbot][Dotbot]]:
+
+#+begin_src shell
+  ./install
+#+end_src
+
+
+Install [[https://brew.sh/][Homebrew]] and get the apps, utilities by running:
 
 #+begin_src shell
   brew bundle
