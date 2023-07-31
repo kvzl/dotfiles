@@ -394,6 +394,14 @@
   (centaur-tabs-headline-match)
   (centaur-tabs-mode t))
 
+(use-package electric
+  :defer 2
+  :straight (:type built-in)
+  :init
+  (electric-pair-mode +1)
+  (setq electric-pair-preserve-balance nil))
+
+
 ;;
 ;; Language modes
 ;;
