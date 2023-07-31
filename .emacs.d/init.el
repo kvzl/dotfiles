@@ -8,7 +8,7 @@
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired t
         insert-directory-program "/opt/homebrew/bin/gls"
-	dired-listing-switches "-aBhl --group-directories-first"))
+	      dired-listing-switches "-aBhl --group-directories-first"))
 
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
@@ -22,6 +22,11 @@
 (scroll-bar-mode -1)		 ;; Disable visible scrollbar
 (tool-bar-mode -1)		 ;; Disable the toolbar
 (set-fringe-mode 4)		 ;; Give some breathing room
+
+;; Indentation
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq evil-shift-width 2)
 
 ;; Fonts
 (setq-default line-spacing 2)
@@ -38,8 +43,8 @@
 (dolist (mode '(term-mode-hook
                 shell-mode-hook
                 eshell-mode-hook
-		vterm-mode-hook
-		dired-mode-hook))
+		            vterm-mode-hook
+		            dired-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 ;;
@@ -74,9 +79,9 @@
 (use-package multi-vterm
   :config
   (add-hook 'vterm-mode-hook
-	    (lambda ()
-	      (setq-local evil-insert-state-cursor 'box)
-	      (evil-insert-state)))
+	          (lambda ()
+	            (setq-local evil-insert-state-cursor 'box)
+	            (evil-insert-state)))
   (define-key vterm-mode-map [return]                      #'vterm-send-return)
 
   (setq vterm-keymap-exceptions nil)
@@ -113,7 +118,7 @@
   :after all-the-icons
   :config
   (setq dashboard-items '((projects . 5)
-			  (recents . 5)))
+			                    (recents . 5)))
   (setq dashboard-icon-type 'all-the-icons)
   (setq dashboard-set-file-icons t)
   (setq dashboard-center-content t)
@@ -136,59 +141,59 @@
 
 (use-package consult
   :bind (
-	 ("C-c M-x" . consult-mode-command)
-	 ("C-c h" . consult-history)
-	 ("C-c k" . consult-kmacro)
-	 ("C-c m" . consult-man)
-	 ("C-c i" . consult-info)
-	 ([remap Info-search] . consult-info)
+	       ("C-c M-x" . consult-mode-command)
+	       ("C-c h" . consult-history)
+	       ("C-c k" . consult-kmacro)
+	       ("C-c m" . consult-man)
+	       ("C-c i" . consult-info)
+	       ([remap Info-search] . consult-info)
 
-	 ;; C-x bindings in `ctl-x-map'
-	 ("C-x M-:" . consult-complex-command)     ;; orig. repeat-complex-command
-	 ("C-x b" . consult-buffer)                ;; orig. switch-to-buffer
-	 ("C-x 4 b" . consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
-	 ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
-	 ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
-	 ("C-x p b" . consult-project-buffer)      ;; orig. project-switch-to-buffer
+	       ;; C-x bindings in `ctl-x-map'
+	       ("C-x M-:" . consult-complex-command)     ;; orig. repeat-complex-command
+	       ("C-x b" . consult-buffer)                ;; orig. switch-to-buffer
+	       ("C-x 4 b" . consult-buffer-other-window) ;; orig. switch-to-buffer-other-window
+	       ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
+	       ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
+	       ("C-x p b" . consult-project-buffer)      ;; orig. project-switch-to-buffer
 
-	 ;; Custom M-# bindings for fast register access
-	 ("M-#" . consult-register-load)
-	 ("M-'" . consult-register-store)          ;; orig. abbrev-prefix-mark (unrelated)
-	 ("C-M-#" . consult-register)
+	       ;; Custom M-# bindings for fast register access
+	       ("M-#" . consult-register-load)
+	       ("M-'" . consult-register-store)          ;; orig. abbrev-prefix-mark (unrelated)
+	       ("C-M-#" . consult-register)
 
-	 ;; Other custom bindings
-	 ("M-y" . consult-yank-pop)                ;; orig. yank-pop
+	       ;; Other custom bindings
+	       ("M-y" . consult-yank-pop)                ;; orig. yank-pop
 
-	 ;; M-g bindings in `goto-map'
-	 ("M-g e" . consult-compile-error)
-	 ("M-g f" . consult-flymake)               ;; Alternative: consult-flycheck
-	 ("M-g g" . consult-goto-line)             ;; orig. goto-line
-	 ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
-	 ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
-	 ("M-g m" . consult-mark)
-	 ("M-g k" . consult-global-mark)
-	 ("M-g i" . consult-imenu)
-	 ("M-g I" . consult-imenu-multi)
+	       ;; M-g bindings in `goto-map'
+	       ("M-g e" . consult-compile-error)
+	       ("M-g f" . consult-flymake)               ;; Alternative: consult-flycheck
+	       ("M-g g" . consult-goto-line)             ;; orig. goto-line
+	       ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
+	       ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
+	       ("M-g m" . consult-mark)
+	       ("M-g k" . consult-global-mark)
+	       ("M-g i" . consult-imenu)
+	       ("M-g I" . consult-imenu-multi)
 
-	 ;; M-s bindings in `search-map'
-	 ("M-s d" . consult-find)
-	 ("M-s D" . consult-locate)
-	 ("M-s g" . consult-grep)
-	 ("M-s G" . consult-git-grep)
-	 ("M-s r" . consult-ripgrep)
-	 ("M-s l" . consult-line)
-	 ("M-s L" . consult-line-multi)
-	 ("M-s k" . consult-keep-lines)
-	 ("M-s u" . consult-focus-lines)
+	       ;; M-s bindings in `search-map'
+	       ("M-s d" . consult-find)
+	       ("M-s D" . consult-locate)
+	       ("M-s g" . consult-grep)
+	       ("M-s G" . consult-git-grep)
+	       ("M-s r" . consult-ripgrep)
+	       ("M-s l" . consult-line)
+	       ("M-s L" . consult-line-multi)
+	       ("M-s k" . consult-keep-lines)
+	       ("M-s u" . consult-focus-lines)
 
-	 ;; Isearch integration
-	 ("M-s e" . consult-isearch-history)
-	 :map isearch-mode-map
-	 ("M-e" . consult-isearch-history)         ;; orig. isearch-edit-string
-	 ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
-	 ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
-	 ("M-s L" . consult-line-multi)            ;; needed by consult-line to detect isearch
-	 )
+	       ;; Isearch integration
+	       ("M-s e" . consult-isearch-history)
+	       :map isearch-mode-map
+	       ("M-e" . consult-isearch-history)         ;; orig. isearch-edit-string
+	       ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
+	       ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
+	       ("M-s L" . consult-line-multi)            ;; needed by consult-line to detect isearch
+	       )
 
   :config
   (consult-customize
@@ -307,25 +312,25 @@
 
   :config
   (setq dirvish-attributes
-	'(vc-state
-	  subtree-state
-	  all-the-icons
-	  collapse
-	  git-msg
-	  file-time
-	  file-size))
+	      '(vc-state
+	        subtree-state
+	        all-the-icons
+	        collapse
+	        git-msg
+	        file-time
+	        file-size))
 
   (setq dirvish-header-line-format
-	'(:left
-	  (path)
-	  :right
-	  (free-space)))
+	      '(:left
+	        (path)
+	        :right
+	        (free-space)))
 
   (setq dirvish-mode-line-format
-	'(:left
-	  (sort file-time " " file-size symlink)
-	  :right
-	  (omit yank index)))
+	      '(:left
+	        (sort file-time " " file-size symlink)
+	        :right
+	        (omit yank index)))
 
   :init
   (dirvish-override-dired-mode))
@@ -357,8 +362,8 @@
   (:map evil-normal-state-map
         ("g n" . centaur-tabs-forward)
         ("g p" . centaur-tabs-backward)
-	("g c" . centaur-tabs--create-new-empty-buffer)
-	("g W" . centaur-tabs-switch-group)))
+	      ("g c" . centaur-tabs--create-new-empty-buffer)
+	      ("g W" . centaur-tabs-switch-group)))
 
 ;;
 ;; Language modes
@@ -384,7 +389,7 @@
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown")
   :bind (:map markdown-mode-map
-         ("C-c C-e" . markdown-do)))
+              ("C-c C-e" . markdown-do)))
 
 (use-package yaml-mode
   :defer t)
