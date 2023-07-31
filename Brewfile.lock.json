@@ -1962,6 +1962,16 @@
             "require_sha": true
           }
         }
+      },
+      "orbstack": {
+        "version": "0.15.1_2284",
+        "options": {
+          "full_name": "orbstack",
+          "args": {
+            "appdir": "~/Applications",
+            "require_sha": true
+          }
+        }
       }
     }
   },

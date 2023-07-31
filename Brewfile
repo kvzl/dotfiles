@@ -60,6 +60,7 @@ cask "lens"
 cask "tableplus"
 cask "google-cloud-sdk", args: { require_sha: false }
 cask "docker"
+cask "orbstack"
 
 brew "awscli"
 brew "helm"
