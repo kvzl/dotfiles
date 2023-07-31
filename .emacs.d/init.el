@@ -10,9 +10,6 @@
         insert-directory-program "/opt/homebrew/bin/gls"
 	      dired-listing-switches "-aBhl --group-directories-first"))
 
-(global-auto-revert-mode 1)
-(setq global-auto-revert-non-file-buffers t)
-
 (setq confirm-kill-emacs #'yes-or-no-p)
 
 ;;
@@ -70,13 +67,16 @@
 (add-to-list 'straight-built-in-pseudo-packages 'eglot)
 
 ;; Manage packages with use-package
-(require 'use-package)
+(eval-when-compile
+  (require 'use-package))
 
 (use-package vterm
+  :defer 1
   :hook
   (vterm-mode-hook . evil-emacs-state))
 
 (use-package multi-vterm
+  :defer 1
   :config
   (add-hook 'vterm-mode-hook
 	          (lambda ()
@@ -210,6 +210,7 @@
   :if (display-graphic-p))
 
 (use-package all-the-icons-completion
+  :defer 2
   :after marginalia
   :config
   (all-the-icons-completion-mode)
@@ -217,6 +218,7 @@
 
 
 (use-package which-key
+  :defer 2
   :config
   (which-key-mode))
 
@@ -262,12 +264,14 @@
   (doom-themes-org-config))
 
 (use-package edwina
+  :defer 1
   :config
   (setq display-buffer-base-action '(display-buffer-below-selected))
   :init
   (edwina-mode 1))
 
 (use-package transpose-frame
+  :defer 3
   :bind
   ("M-S-SPC" . transpose-frame))
 
@@ -282,15 +286,18 @@
 
 (use-package evil-collection
   :after evil
+  :defer 2
   :config
   (evil-collection-init))
 
 (use-package evil-surround
+  :defer 2
   :config
   (global-evil-surround-mode 1))
 
 
 (use-package company
+  :defer 2
   :bind (:map company-active-map
               ("<tab>" . company-complete-selection))
   :hook
@@ -300,9 +307,11 @@
   (company-idle-delay 0.0))
 
 (use-package company-box
+  :defer 2
   :hook (company-mode . company-box-mode))
 
 (use-package magit
+  :defer t
   :commands magit-status
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
@@ -335,7 +344,8 @@
   :init
   (dirvish-override-dired-mode))
 
-(use-package eldoc-box)
+(use-package eldoc-box
+  :defer 3)
 
 ;; (use-package copilot
 ;;   :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
@@ -344,8 +354,9 @@
 
 (use-package exec-path-from-shell
   :init
+  (setq exec-path-from-shell-arguments nil)
   (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
+    (exec-path-from-shell-copy-env "PATH")))
 
 (use-package centaur-tabs
   :demand
@@ -377,6 +388,7 @@
   (global-treesit-auto-mode))
 
 (use-package eglot
+  :defer t
   :config
   (add-to-list 'eglot-server-programs '(rust-ts-mode . ("rust-analyzer")))
   (add-to-list 'eglot-server-programs '(terraform-mode . ("terraform-ls" "serve")))
@@ -386,6 +398,7 @@
   (typescript-ts-mode . eglot-ensure))
 
 (use-package markdown-mode
+  :defer t
   :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown")
   :bind (:map markdown-mode-map
@@ -426,8 +439,7 @@
   (interactive)
   (find-file (concat user-emacs-directory "init.el")))
 
-(require 'bind-key)
-(bind-key* "M-," 'open-user-config)
+(bind-key "M-," 'open-user-config override-global-map)
 
 ;; set keys for Apple keyboard, for emacs in OS X
 (setq mac-command-modifier 'meta) ; make cmd key do Meta
