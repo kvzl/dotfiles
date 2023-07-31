@@ -347,10 +347,17 @@
 (use-package eldoc-box
   :defer 3)
 
-;; (use-package copilot
-;;   :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
-;;   :hook
-;;   (prog-mode . copilot-mode))
+(use-package copilot
+  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+
+  :config
+  (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
+  (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
+  (add-to-list 'copilot-major-mode-alist '("typescript-ts" . "typescript"))
+  (add-to-list 'copilot-major-mode-alist '("rust-ts" . "rust"))
+
+  :hook
+  (prog-mode . copilot-mode))
 
 (use-package exec-path-from-shell
   :init
