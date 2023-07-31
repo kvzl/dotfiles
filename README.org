@@ -1,5 +1,7 @@
 #+TITLE: dotfiles
 
+[[./screenshots/emacs.png]]
+
 ** Environment
 
 Currently:
