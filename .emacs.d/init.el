@@ -386,8 +386,7 @@
 ;; Language modes
 ;;
 
-(use-package 
-  treesit-auto
+(use-package treesit-auto
   :demand t
   :config
   (setq treesit-auto-install 'prompt)
