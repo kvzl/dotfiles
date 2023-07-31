@@ -70,12 +70,13 @@
   (require 'use-package))
 
 (use-package vterm
-  :defer 1
+  :defer 2
   :hook
-  (vterm-mode-hook . evil-emacs-state))
+  (vterm-mode . evil-emacs-state-mode))
 
 (use-package multi-vterm
-  :defer 1
+  :defer 2
+  :after vterm
   :config
   (add-hook 'vterm-mode-hook
 	          (lambda ()
@@ -125,10 +126,13 @@
   (dashboard-setup-startup-hook))
 
 (use-package vertico
+  :defer 1
   :init
   (vertico-mode))
 
 (use-package marginalia
+  :defer 1
+
   ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
   ;; available in the *Completions* buffer, add it to the
   ;; `completion-list-mode-map'.
@@ -139,6 +143,8 @@
   (marginalia-mode))
 
 (use-package consult
+  :defer 1
+
   :bind (
 	       ("C-c M-x" . consult-mode-command)
 	       ("C-c h" . consult-history)
@@ -222,6 +228,7 @@
   (which-key-mode))
 
 (use-package savehist
+  :defer 1
   :init
   (savehist-mode))
 
@@ -276,12 +283,20 @@
 
 
 (use-package evil
+  :defer 1
   :init
   (setq evil-want-keybinding nil)
   :config
   (evil-set-undo-system 'undo-redo)
   (evil-mode 1)
-  (evil-set-initial-state 'dashboard-mode 'normal))
+  (evil-set-initial-state 'dashboard-mode 'normal)
+
+  :bind
+  (:map evil-normal-state-map
+        ("g n" . centaur-tabs-forward)
+        ("g p" . centaur-tabs-backward)
+	      ("g c" . centaur-tabs--create-new-empty-buffer)
+	      ("g W" . centaur-tabs-switch-group)))
 
 (use-package evil-collection
   :after evil
@@ -296,17 +311,17 @@
 
 
 (use-package company
-  :defer 2
+  :defer t
   :bind (:map company-active-map
               ("<tab>" . company-complete-selection))
   :hook
-  (after-init . global-company-mode)
+  (emacs-startup . global-company-mode)
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
 
 (use-package company-box
-  :defer 2
+  :defer t
   :hook (company-mode . company-box-mode))
 
 (use-package magit
@@ -314,6 +329,8 @@
   :commands magit-status
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+  :defer 2
+
 
 (use-package dirvish
   :defer t
@@ -347,6 +364,7 @@
   :defer 3)
 
 (use-package copilot
+  :defer t
   :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
 
   :config
@@ -374,20 +392,14 @@
   :config
   ;; (centaur-tabs-change-fonts 'default 120)
   (centaur-tabs-headline-match)
-  (centaur-tabs-mode t)
-  :bind
-  (:map evil-normal-state-map
-        ("g n" . centaur-tabs-forward)
-        ("g p" . centaur-tabs-backward)
-	      ("g c" . centaur-tabs--create-new-empty-buffer)
-	      ("g W" . centaur-tabs-switch-group)))
+  (centaur-tabs-mode t))
 
 ;;
 ;; Language modes
 ;;
 
 (use-package treesit-auto
-  :demand t
+  :defer 2
   :config
   (setq treesit-auto-install 'prompt)
   (global-treesit-auto-mode))
