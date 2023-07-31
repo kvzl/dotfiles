@@ -1,49 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
 
-;; misc
-(setq use-package-verbose t)
-
-(setq confirm-kill-processes nil)
-
-(when (string= system-type "darwin")
-  (setq dired-use-ls-dired t
-        insert-directory-program "/opt/homebrew/bin/gls"
-	      dired-listing-switches "-aBhl --group-directories-first"))
-
-(setq confirm-kill-emacs #'yes-or-no-p)
-
-;;
-;; Basic appearance settings
-;;
-(setq inhibit-startup-message t) ;; Disable default startup message
-(scroll-bar-mode -1)		 ;; Disable visible scrollbar
-(tool-bar-mode -1)		 ;; Disable the toolbar
-(set-fringe-mode 4)		 ;; Give some breathing room
-
-;; Indentation
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-(setq evil-shift-width 2)
-
-;; Fonts
-(setq-default line-spacing 2)
-(set-face-attribute 'default nil :font "Fira Code" :height 130)
-
-(let ((frame-transparency '(90 . 90)))
-  (set-frame-parameter (selected-frame) 'alpha frame-transparency)
-  (add-to-list 'default-frame-alist `(alpha . ,frame-transparency)))
-
-(column-number-mode)
-(global-display-line-numbers-mode t)
-
-;; Disable line numbers for some modes
-(dolist (mode '(term-mode-hook
-                shell-mode-hook
-                eshell-mode-hook
-		            vterm-mode-hook
-		            dired-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
 ;;
 ;; Plugins
 ;;
@@ -285,7 +241,6 @@
 
 
 (use-package evil
-  :defer 1
   :init
   (setq evil-want-keybinding nil)
   :config
@@ -302,7 +257,6 @@
 
 (use-package evil-collection
   :after evil
-  :defer 2
   :config
   (evil-collection-init))
 
@@ -370,6 +324,7 @@
   :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
 
   :config
+  (setq copilot-idle-delay 0.1)
   (define-key copilot-completion-map (kbd "<tab>") 'copilot-accept-completion)
   (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
   (add-to-list 'copilot-major-mode-alist '("typescript-ts" . "typescript"))
@@ -419,7 +374,7 @@
 ;;
 
 (use-package treesit-auto
-  :defer 2
+  :defer 3
   :config
   (setq treesit-auto-install 'prompt)
   (global-treesit-auto-mode))
