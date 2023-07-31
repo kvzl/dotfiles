@@ -64,7 +64,6 @@
 
 (setq straight-use-package-by-default 1)
 (straight-use-package 'use-package)
-(add-to-list 'straight-built-in-pseudo-packages 'eglot)
 
 ;; Manage packages with use-package
 (eval-when-compile
@@ -396,9 +395,12 @@
 
 (use-package eglot
   :defer t
+  :straight (:type built-in)
+
   :config
   (add-to-list 'eglot-server-programs '(rust-ts-mode . ("rust-analyzer")))
   (add-to-list 'eglot-server-programs '(terraform-mode . ("terraform-ls" "serve")))
+
   :hook
   (terraform-mode . eglot-ensure)
   (rust-ts-mode . eglot-ensure)
