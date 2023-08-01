@@ -1,10 +1,6 @@
-;;; -*- lexical-binding: t; -*-
+;;; -*- no-byte-compile: t -*-
+;;; -*- lexical-binding: t -*-
 
-;;
-;; Plugins
-;;
-
-;; Use straight.el as package manager
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
@@ -21,10 +17,9 @@
 (setq straight-use-package-by-default 1)
 (straight-use-package 'use-package)
 
-;; Manage packages with use-package
-(eval-when-compile
-  (require 'use-package))
-
+;;
+;; Plugins
+;;
 (use-package vterm
   :defer 2)
 
