@@ -26,9 +26,7 @@
   (require 'use-package))
 
 (use-package vterm
-  :defer 2
-  :hook
-  (vterm-mode . evil-emacs-state-mode))
+  :defer 2)
 
 (use-package multi-vterm
   :defer 2
