@@ -139,6 +139,7 @@
 	       ("M-s L" . consult-line-multi)
 	       ("M-s k" . consult-keep-lines)
 	       ("M-s u" . consult-focus-lines)
+         ("C-c f" . consult-recent-file)
 
 	       ;; Isearch integration
 	       ("M-s e" . consult-isearch-history)
