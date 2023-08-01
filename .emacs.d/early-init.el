@@ -1,13 +1,21 @@
-(defun efs/display-startup-time ()
-  (message
-   "Emacs loaded in %s with %d garbage collections."
-   (format
-    "%.2f seconds"
-    (float-time
-     (time-subtract after-init-time before-init-time)))
-   gcs-done))
+;;; -*- no-byte-compile: t -*-
 
-(add-hook 'emacs-startup-hook #'efs/display-startup-time)
+(defun kvzl/dashboard-init-info ()
+  (let ((package-count 0))
+    (when (bound-and-true-p package-alist)
+      (setq package-count (length package-activated-list)))
+    (when (boundp 'straight--profile-cache)
+      (setq package-count (+ (hash-table-count straight--profile-cache) package-count)))
+    (when (fboundp 'elpaca--queued)
+      (setq package-count (length (elpaca--queued))))
+    (format "%d packages loaded in %s with %d garbaged collections."
+            package-count
+            (format "%.2f seconds"
+                    (float-time
+                     (time-subtract after-init-time before-init-time)))
+            gcs-done)))
+
+(setq dashboard-init-info 'kvzl/dashboard-init-info)
 
 
 (setq use-package-verbose t)
@@ -81,5 +89,4 @@
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum)
 (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold 800000)))
-
 
