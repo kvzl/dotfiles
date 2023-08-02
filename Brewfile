@@ -48,6 +48,7 @@ cask "font-fira-code"
 cask "font-cascadia-mono"
 cask "font-cascadia-code"
 cask "font-hack-nerd-font"
+cask "font-noto-sans-cjk", args: { require_sha: false }
 
 # DevOps tools
 tap "hashicorp/tap"
