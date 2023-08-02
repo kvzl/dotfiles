@@ -362,6 +362,10 @@
 (use-package kubernetes-evil
   :after kubernetes)
 
+(use-package valign
+  :defer t
+  :hook
+  (org-mode . valign-mode))
 
 ;;
 ;; Language modes
