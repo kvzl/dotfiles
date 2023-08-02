@@ -418,6 +418,18 @@
   :hook
   (rust-mode . prettify-symbols-mode))
 
+(use-package php-mode
+  :defer t)
+
+(use-package web-mode
+  :mode
+  (".twig$"
+   ".html?$"
+   ".hbs$"
+   ".vue$"
+   ".blade.php$"
+   ))
+
 ;; 
 ;; Global key bindings
 ;;
