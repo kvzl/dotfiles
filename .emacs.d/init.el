@@ -21,7 +21,9 @@
 ;; Plugins
 ;;
 (use-package vterm
-  :defer 2)
+  :defer 2
+  :hook
+  (vterm-mode . evil-emacs-state))
 
 (use-package multi-vterm
   :defer 2
