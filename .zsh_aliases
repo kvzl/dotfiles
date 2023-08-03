@@ -20,3 +20,5 @@ alias tfs='terraform state'
 # kubecm
 alias kc='kubecm'
 
+# exa
+alias ls='exa'                                                         # ls

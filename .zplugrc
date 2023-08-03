@@ -19,7 +19,6 @@ zplug "agkozak/zsh-z"
 zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "hlissner/zsh-autopair", defer:2
 zplug "molovo/tipz"
-zplug "DarrinTisdale/zsh-aliases-exa"
 zplug "MichaelAquilina/zsh-autoswitch-virtualenv", defer:2
 zplug "lukechilds/zsh-nvm"
 
