@@ -85,6 +85,7 @@
 		            dired-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
+(setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum)
