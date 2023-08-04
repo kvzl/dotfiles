@@ -88,7 +88,7 @@
 
 ;; Fonts
 (setq-default line-spacing 2)
-(set-face-attribute 'default nil :font "Hack Nerd Font Mono" :height 130)
+;; (set-face-attribute 'default nil :font "Jetbrains Mono" :height 120)  ;; should be called after initializing ligature.el
 
 (let ((frame-transparency '(90 . 90)))
   (set-frame-parameter (selected-frame) 'alpha frame-transparency)
