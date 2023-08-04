@@ -385,9 +385,20 @@
                                      "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
   :init
   (global-ligature-mode t))
+
 ;;
 ;; Language modes
 ;;
+
+(setq major-mode-remap-alist
+ '((yaml-mode . yaml-ts-mode)
+   (bash-mode . bash-ts-mode)
+   (js2-mode . js-ts-mode)
+   (typescript-mode . typescript-ts-mode)
+   (json-mode . json-ts-mode)
+   (css-mode . css-ts-mode)))
+
+(add-to-list 'auto-mode-alist '(".tsx?$" . typescript-ts-mode))
 
 (use-package treesit-auto
   :defer 3
@@ -406,7 +417,8 @@
   :hook
   (terraform-mode . eglot-ensure)
   (rust-ts-mode . eglot-ensure)
-  (typescript-ts-mode . eglot-ensure))
+  (typescript-ts-mode . eglot-ensure)
+  (typescript-mode . eglot-ensure))
 
 (use-package markdown-mode
   :defer t
