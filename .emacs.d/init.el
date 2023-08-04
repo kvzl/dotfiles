@@ -120,6 +120,7 @@
   :config
   (global-evil-surround-mode 1))
 
+
 (use-package vertico
   :init
   (setq vertico-scroll-margin 0)
@@ -268,12 +269,12 @@
   :commands magit-status
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-  :defer 2
 
 (use-package dirvish
   :defer t
 
-  :config
+  :init
+  (setq dirvish-side-auto-close t)
   (setq dirvish-attributes
 	      '(vc-state
 	        subtree-state
@@ -282,21 +283,22 @@
 	        git-msg
 	        file-time
 	        file-size))
-
   (setq dirvish-header-line-format
 	      '(:left
 	        (path)
 	        :right
 	        (free-space)))
-
   (setq dirvish-mode-line-format
 	      '(:left
 	        (sort file-time " " file-size symlink)
 	        :right
 	        (omit yank index)))
 
-  :init
-  (dirvish-override-dired-mode))
+  :config
+  (dirvish-override-dired-mode)
+
+  :bind
+  ("M-[" . dirvish-side))
 
 (use-package eldoc-box
   :defer 3)
