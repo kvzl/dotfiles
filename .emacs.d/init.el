@@ -20,70 +20,116 @@
 ;;
 ;; Plugins
 ;;
-(use-package vterm
-  :defer 2
-  :hook
-  (vterm-mode . evil-emacs-state))
+(use-package exec-path-from-shell
+  :init
+  (setq exec-path-from-shell-arguments nil)
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-copy-env "PATH")))
 
-(use-package multi-vterm
-  :defer 2
-  :after vterm
+(use-package all-the-icons
+  :if (display-graphic-p))
+
+(use-package centaur-tabs
+  :demand t
+  :init
+  (setq centaur-tabs-set-icons t)
+  (setq centaur-tabs-height 24)
+  (setq centaur-tabs-set-bar 'left)
+  (setq centaur-tabs-enable-key-bindings t)
   :config
-  (add-hook 'vterm-mode-hook
-	          (lambda ()
-	            (setq-local evil-insert-state-cursor 'box)
-	            (evil-insert-state)))
-  (define-key vterm-mode-map [return]                      #'vterm-send-return)
+  ;; (centaur-tabs-change-fonts 'default 120)
+  (centaur-tabs-headline-match)
+  (centaur-tabs-mode t))
 
-  (setq vterm-keymap-exceptions nil)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-e")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-f")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-a")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-v")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-b")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-w")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-u")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-d")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-n")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-m")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-p")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-j")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-k")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-r")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-t")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-g")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-c")      #'vterm--self-insert)
-  (evil-define-key 'insert vterm-mode-map (kbd "C-SPC")    #'vterm--self-insert)
-  (evil-define-key 'normal vterm-mode-map (kbd "C-d")      #'vterm--self-insert)
-  (evil-define-key 'normal vterm-mode-map (kbd ",c")       #'multi-vterm)
-  (evil-define-key 'normal vterm-mode-map (kbd ",n")       #'multi-vterm-next)
-  (evil-define-key 'normal vterm-mode-map (kbd ",p")       #'multi-vterm-prev)
-  (evil-define-key 'normal vterm-mode-map (kbd "i")        #'evil-insert-resume)
-  (evil-define-key 'normal vterm-mode-map (kbd "o")        #'evil-insert-resume)
-  (evil-define-key 'normal vterm-mode-map (kbd "<return>") #'evil-insert-resume)
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom
+  (doom-modeline-height 32))
 
-  :bind
-  ("C-`" . multi-vterm-project))
+(use-package doom-themes
+  :demand t
+  :init
+  (setq doom-themes-enable-bold t) 
+  (setq doom-themes-enable-italic t)
+
+  :config
+  ;; ===> Dark themes
+  ;; (load-theme 'doom-spacegrey t)
+  ;; (load-theme 'doom-opera t)
+  ;; (load-theme 'doom-one t)
+  ;; (load-theme 'doom-homage-black t)
+  ;; (load-theme 'doom-plain-dark t)
+  (load-theme 'doom-tomorrow-night t)
+  ;; (load-theme 'doom-vibrant t)
+  ;; (load-theme 'doom-city-lights t)
+  ;; (load-theme 'doom-ayu-dark t)
+  ;; (load-theme 'doom-ayu-mirage t)
+
+  ;; ===> Light themes
+  ;; (load-theme 'doom-flatwhite t)
+
+
+  ;; (load-theme 'doom-one-light t)
+  ;; (load-theme 'doom-homage-white t)
+  ;; (load-theme 'doom-ayu-light t)
+  ;; (load-theme 'doom-plain t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
 
 (use-package dashboard
+  :demand t
   :after all-the-icons
-  :config
+  :init
   (setq dashboard-items '((projects . 5)
 			                    (recents . 5)))
   (setq dashboard-icon-type 'all-the-icons)
   (setq dashboard-set-file-icons t)
   (setq dashboard-center-content t)
   (setq dashboard-projects-backend 'project-el)
+  :config
   (dashboard-setup-startup-hook))
 
-(use-package vertico
-  :defer 1
+(use-package evil
+  :demand t
+
   :init
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-set-undo-system 'undo-redo)
+  (evil-mode 1)
+  (evil-set-initial-state 'dashboard-mode 'normal)
+
+  :bind
+  (:map evil-normal-state-map
+        ("g n" . centaur-tabs-forward)
+        ("g p" . centaur-tabs-backward)
+	      ("g c" . centaur-tabs--create-new-empty-buffer)
+	      ("g W" . centaur-tabs-switch-group)))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
+(use-package evil-surround
+  :defer 2
+  :config
+  (global-evil-surround-mode 1))
+
+(use-package vertico
+  :init
+  (setq vertico-scroll-margin 0)
+  (setq vertico-count 10)
+  (setq vertico-resize t)
+  (setq vertico-cycle t)
+  :config
   (vertico-mode))
 
 (use-package marginalia
-  :defer 1
-
   ;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
   ;; available in the *Completions* buffer, add it to the
   ;; `completion-list-mode-map'.
@@ -93,9 +139,14 @@
   :init
   (marginalia-mode))
 
-(use-package consult
-  :defer 1
+(use-package all-the-icons-completion
+  :after marginalia
+  :config
+  (all-the-icons-completion-mode)
+  :hook
+  (marginalia-mode . all-the-icons-completion-marginalia-setup))
 
+(use-package consult
   :bind (
 	       ("C-c M-x" . consult-mode-command)
 	       ("C-c h" . consult-history)
@@ -163,16 +214,16 @@
    :preview-key '(:debounce 0.4 any))
   )
 
-(use-package all-the-icons
-  :if (display-graphic-p))
+(use-package vterm
+  :defer 1
+  :hook
+  (vterm-mode . evil-emacs-state))
 
-(use-package all-the-icons-completion
-  :defer 2
-  :after marginalia
-  :config
-  (all-the-icons-completion-mode)
-  (add-hook 'marginalia-mode-hook #'all-the-icons-completion-marginalia-setup))
-
+(use-package multi-vterm
+  :after vterm
+  :bind
+  ("C-`" . multi-vterm-project)
+  ("C-~" . multi-vterm-dedicated-toggle))
 
 (use-package which-key
   :defer 2
@@ -183,86 +234,20 @@
   :defer 1
   :init
   (savehist-mode))
-
-(use-package doom-modeline
-  :init (doom-modeline-mode 1)
-  :custom
-  (doom-modeline-height 32))
-
-(use-package doom-themes
-  :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-
-  ;; ===> Dark themes
-  ;; (load-theme 'doom-spacegrey t)
-  ;; (load-theme 'doom-opera t)
-  ;; (load-theme 'doom-one t)
-  ;; (load-theme 'doom-homage-black t)
-  ;; (load-theme 'doom-plain-dark t)
-  (load-theme 'doom-tomorrow-night t)
-  ;; (load-theme 'doom-vibrant t)
-  ;; (load-theme 'doom-city-lights t)
-  ;; (load-theme 'doom-ayu-dark t)
-  ;; (load-theme 'doom-ayu-mirage t)
-
-  ;; ===> Light themes
-  ;; (load-theme 'doom-flatwhite t)
-  ;; (load-theme 'doom-one-light t)
-  ;; (load-theme 'doom-homage-white t)
-  ;; (load-theme 'doom-ayu-light t)
-  ;; (load-theme 'doom-plain t)
-
-
-  ;; Enable flashing mode-line on errors
-  (doom-themes-visual-bell-config)
-
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
-
+  
 (use-package edwina
-  :defer 1
-  :config
-  (setq display-buffer-base-action '(display-buffer-below-selected))
-  (edwina-setup-dwm-keys 'hyper)
-
+  :defer 2
   :init
+  (setq display-buffer-base-action '(display-buffer-below-selected))
+
+  :config
+  (edwina-setup-dwm-keys 'hyper)
   (edwina-mode 1))
 
 (use-package transpose-frame
-  :defer 3
+  :defer 2
   :bind
   ("M-S-SPC" . transpose-frame))
-
-
-(use-package evil
-  :demand t
-
-  :init
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-set-undo-system 'undo-redo)
-  (evil-mode 1)
-  (evil-set-initial-state 'dashboard-mode 'normal)
-
-  :bind
-  (:map evil-normal-state-map
-        ("g n" . centaur-tabs-forward)
-        ("g p" . centaur-tabs-backward)
-	      ("g c" . centaur-tabs--create-new-empty-buffer)
-	      ("g W" . centaur-tabs-switch-group)))
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
-(use-package evil-surround
-  :defer 2
-  :config
-  (global-evil-surround-mode 1))
-
 
 (use-package company
   :defer t
@@ -284,7 +269,6 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
   :defer 2
-
 
 (use-package dirvish
   :defer t
@@ -331,35 +315,18 @@
   :hook
   (prog-mode . copilot-mode))
 
-(use-package exec-path-from-shell
-  :init
-  (setq exec-path-from-shell-arguments nil)
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-copy-env "PATH")))
-
-(use-package centaur-tabs
-  :demand
-  :init
-  (setq centaur-tabs-set-icons t)
-  (setq centaur-tabs-height 24)
-  (setq centaur-tabs-set-bar 'left)
-  (setq centaur-tabs-enable-key-bindings t)
-  :config
-  ;; (centaur-tabs-change-fonts 'default 120)
-  (centaur-tabs-headline-match)
-  (centaur-tabs-mode t))
-
 (use-package electric
   :defer 2
   :straight (:type built-in)
   :init
-  (electric-pair-mode +1)
-  (setq electric-pair-preserve-balance nil))
+  (setq electric-pair-preserve-balance nil)
+  :config
+  (electric-pair-mode +1))
 
 (use-package kubernetes
   :defer 2
   :commands (kubernetes-overview)
-  :config
+  :init
   (setq kubernetes-poll-frequency 3600
         kubernetes-redraw-frequency 3600))
 
@@ -385,7 +352,6 @@
                                      "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
                                      "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
                                      "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
-  :init
   (global-ligature-mode t))
 
 ;;
@@ -458,6 +424,7 @@
   :defer t)
 
 (use-package web-mode
+  :defer t
   :mode
   (".twig$"
    ".html?$"
@@ -466,20 +433,3 @@
    ".blade.php$"
    ))
 
-;; 
-;; Global key bindings
-;;
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; Make ESC quit prompts
-(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
-
-(defun open-user-config ()
-  (interactive)
-  (find-file (concat user-emacs-directory "init.el")))
-
-(bind-key "M-," 'open-user-config override-global-map)
-
-;; set keys for Apple keyboard, for emacs in OS X
-(setq mac-command-modifier 'meta) ; make cmd key do Meta
-(setq mac-option-modifier 'super) ; make opt key do Super
-(setq mac-control-modifier 'control) ; make Control key do Control
-(setq ns-function-modifier 'hyper)  ; make Fn key do Hyper

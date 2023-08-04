@@ -17,7 +17,27 @@
 
 (setq dashboard-init-info 'kvzl/dashboard-init-info)
 
+;;
+;; Global key bindings
+;;
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; Make ESC quit prompts
+(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 
+(defun open-user-config ()
+  (interactive)
+  (find-file (concat user-emacs-directory "init.el")))
+
+(bind-key "M-," 'open-user-config override-global-map)
+
+;; set keys for Apple keyboard, for emacs in OS X
+(setq mac-command-modifier 'meta) ; make cmd key do Meta
+(setq mac-option-modifier 'super) ; make opt key do Super
+(setq mac-control-modifier 'control) ; make Control key do Control
+(setq ns-function-modifier 'hyper)  ; make Fn key do Hyper
+
+;;
+;; Misc
+;;
 (setq use-package-verbose t)
 (setq inhibit-startup-message t) ;; Disable default startup message
 (setq confirm-kill-processes nil)
