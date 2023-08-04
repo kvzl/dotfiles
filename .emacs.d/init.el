@@ -237,6 +237,8 @@
 
 
 (use-package evil
+  :demand t
+
   :init
   (setq evil-want-keybinding nil)
   :config
