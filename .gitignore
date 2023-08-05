@@ -68,3 +68,6 @@ flycheck_*.el
 .config/*
 !.config/nvim/init.vim
 !.config/kitty
+!.config/kitty
+!.config/sketchybar
+

@@ -35,6 +35,9 @@ cask "iterm2"
 cask "kitty"
 cask "amethyst"
 
+tap "FelixKratz/formulae"
+brew "sketchybar"
+
 # Programming languages
 brew "pyenv"
 brew "nvm"

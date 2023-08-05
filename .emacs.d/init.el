@@ -382,7 +382,7 @@
                             "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
                             "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
                             "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
-  (set-face-attribute 'default nil :font "JetBrains Mono" :height 120)
+  (set-face-attribute 'default nil :font "JetBrains Mono" :height 130)
   :hook
   (prog-mode . ligature-mode))
 

@@ -11,6 +11,7 @@ Currently:
 - Editor: Emacs ([[https://github.com/d12frosted/homebrew-emacs-plus][emacs-plus]] for macOS)
 - Package manager: [[https://brew.sh/][Homebrew]] + [[https://github.com/Homebrew/homebrew-bundle][Brewfile]]
 - Dotfile manager: [[https://github.com/anishathalye/dotbot][Dotbot]]
+- WM: [[https://ianyh.com/amethyst/][Amethyst]] + [[https://felixkratz.github.io/SketchyBar/][Sketchybar]]
 
 Not in use:
 - Alacritty
