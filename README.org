@@ -1,6 +1,6 @@
 #+TITLE: dotfiles
 
-[[./screenshots/emacs.png]]
+[[./screenshots/full.png]]
 
 ** Environment
 
