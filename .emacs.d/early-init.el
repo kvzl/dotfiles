@@ -1,17 +1,5 @@
-;;; -*- no-byte-compile: t -*-
+(setq package-enable-at-startup nil)
 
-
-;;
-;; Global key bindings
-;;
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; Make ESC quit prompts
-(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
-
-(defun open-user-config ()
-  (interactive)
-  (find-file (concat user-emacs-directory "init.el")))
-
-(bind-key "M-," 'open-user-config override-global-map)
 
 ;; set keys for Apple keyboard, for emacs in OS X
 (setq mac-command-modifier 'meta) ; make cmd key do Meta
@@ -44,22 +32,6 @@
       (setq native-comp-deferred-compilation-deny-list deny-list)
     (setq comp-deferred-compilation-deny-list deny-list)))
 
-(when (or (boundp 'comp-eln-load-path) (boundp 'native-comp-eln-load-path))
-  (let ((eln-cache-dir (expand-file-name "cache/eln-cache/"
-                                         user-emacs-directory))
-        (find-exec (executable-find "find")))
-
-    (if (boundp 'native-comp-eln-load-path)
-        (setcar native-comp-eln-load-path eln-cache-dir)
-      (setcar comp-eln-load-path eln-cache-dir))
-    ;; Quitting emacs while native compilation in progress can leave zero byte
-    ;; sized *.eln files behind. Hence delete such files during startup.
-    (when find-exec
-      (call-process find-exec nil nil nil eln-cache-dir
-                    "-name" "*.eln" "-size" "0" "-delete" "-or"
-                    "-name" "*.eln.tmp" "-size" "0" "-delete"))))
-
-;;
 ;; Basic appearance settings
 ;;
 (scroll-bar-mode -1)		 ;; Disable visible scrollbar
