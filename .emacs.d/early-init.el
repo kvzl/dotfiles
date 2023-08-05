@@ -38,6 +38,7 @@
 ;;
 ;; Misc
 ;;
+(setq delete-by-moving-to-trash t)
 (setq use-package-verbose t)
 (setq inhibit-startup-message t) ;; Disable default startup message
 (setq confirm-kill-processes nil)
