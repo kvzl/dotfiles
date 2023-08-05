@@ -217,6 +217,8 @@
 
 (use-package vterm
   :defer 1
+  :bind
+  ("C-u" . vterm--self-insert)
   :hook
   (vterm-mode . evil-emacs-state))
 
