@@ -44,7 +44,7 @@
 (setq evil-shift-width 2)
 
 ;; Fonts
-(setq-default line-spacing 2)
+;; (setq-default line-spacing 0)
 ;; (set-face-attribute 'default nil :font "Jetbrains Mono" :height 120)  ;; should be called after initializing ligature.el
 
 (let ((frame-transparency '(90 . 90)))
