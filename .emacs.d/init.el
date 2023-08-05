@@ -1,26 +1,35 @@
-;;; -*- no-byte-compile: t -*-
-;;; -*- lexical-binding: t -*-
+(eval-and-compile
+  (setq straight-use-package-by-default t)
+  (setq straight-cache-autoloads t)
+  (setq straight-vc-git-default-clone-depth 1)
+  (setq vc-follow-symlinks t)
+  (setq straight-check-for-modifications '(check-on-save find-when-checking))
+  (setq straight-recipes-emacsmirror-use-mirror nil)
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 6))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+  (defvar bootstrap-version)
+  (setq straight-repository-branch "develop") ; TEMPORARY issue with straight, see https://jeffkreeftmeijer.com/emacs-straight-use-package/
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 6))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
 
-(setq straight-use-package-by-default 1)
-(straight-use-package 'use-package)
+  ;; Install use-package
+  (straight-use-package '(use-package :type built-in))
+  (require 'bind-key))
 
 ;;
 ;; Plugins
 ;;
+
 (use-package exec-path-from-shell
+  :commands exec-path-from-shell-copy-env
   :init
   (setq exec-path-from-shell-arguments nil)
   (when (memq window-system '(mac ns x))
@@ -42,6 +51,8 @@
   (centaur-tabs-mode t))
 
 (use-package doom-modeline
+  :functions (doom-modeline-mode)
+  :commands (doom-modeline-mode)
   :init (doom-modeline-mode 1)
   :custom
   (doom-modeline-height 32))
@@ -107,6 +118,7 @@
               gcs-done)))
 
   (setq dashboard-init-info 'kvzl/dashboard-init-info)
+
   :config
   (dashboard-setup-startup-hook))
 
@@ -219,7 +231,7 @@
 	       ("M-s e" . consult-isearch-history)       ;; orig. isearch-edit-string
 	       ("M-s l" . consult-line)                  ;; needed by consult-line to detect isearch
 	       ("M-s L" . consult-line-multi)            ;; needed by consult-line to detect isearch
-	       )
+  	     )
 
   :config
   (consult-customize
@@ -254,7 +266,7 @@
   :defer 1
   :init
   (savehist-mode))
-  
+
 (use-package edwina
   :defer 2
   :init
@@ -312,10 +324,8 @@
 	        (sort file-time " " file-size symlink)
 	        :right
 	        (omit yank index)))
-
-  :config
   (dirvish-override-dired-mode)
-
+  
   :bind
   ("M-[" . dirvish-side))
 
@@ -381,12 +391,12 @@
 ;;
 
 (setq major-mode-remap-alist
- '((yaml-mode . yaml-ts-mode)
-   (bash-mode . bash-ts-mode)
-   (js2-mode . js-ts-mode)
-   (typescript-mode . typescript-ts-mode)
-   (json-mode . json-ts-mode)
-   (css-mode . css-ts-mode)))
+      '((yaml-mode . yaml-ts-mode)
+        (bash-mode . bash-ts-mode)
+        (js2-mode . js-ts-mode)
+        (typescript-mode . typescript-ts-mode)
+        (json-mode . json-ts-mode)
+        (css-mode . css-ts-mode)))
 
 (add-to-list 'auto-mode-alist '(".tsx?$" . typescript-ts-mode))
 
@@ -455,3 +465,14 @@
    ".blade.php$"
    ))
 
+;;
+;; Global key bindings
+;;
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; Make ESC quit prompts
+(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
+
+(defun open-user-config ()
+  (interactive)
+  (find-file (concat user-emacs-directory "init.el")))
+
+(bind-key "M-," 'open-user-config override-global-map)
