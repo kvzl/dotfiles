@@ -18,7 +18,7 @@
 (when (string= system-type "darwin")
   (setq dired-use-ls-dired t
         insert-directory-program "/opt/homebrew/bin/gls"
-	      dired-listing-switches "-aBhl --group-directories-first"))
+	      dired-listing-switches "-aABDhlG --group-directories-first"))
 
 (setq frame-resize-pixelwise t) 
 (add-to-list 'default-frame-alist '(undecorated-round . t))
