@@ -382,13 +382,15 @@
                             "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
                             "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
                             "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
-  (set-face-attribute 'default nil :font "JetBrains Mono" :height 130)
+  (set-face-attribute 'default nil :font "Fira Code" :height 130)
   :hook
   (prog-mode . ligature-mode))
 
 ;;
 ;; Language modes
 ;;
+
+(add-hook 'prog-mode-hook 'global-prettify-symbols-mode)
 
 (setq major-mode-remap-alist
       '((yaml-mode . yaml-ts-mode)
