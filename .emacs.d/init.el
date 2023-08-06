@@ -478,14 +478,24 @@
    ".blade.php$"
    ))
 
-;;
-;; Global key bindings
-;;
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; Make ESC quit prompts
-(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
 
-(defun open-user-config ()
+;;
+;; Custom functions
+;;
+(defun k-l/open-user-config ()
   (interactive)
   (find-file (concat user-emacs-directory "init.el")))
 
-(bind-key "M-," 'open-user-config override-global-map)
+(defun k-l/alpha-toggle ()
+  "toggle transparency"
+  (interactive)
+  (let* ((current-transparency (frame-parameter nil 'alpha))
+         (new-transparency (if (equal current-transparency '(100 . 100))
+                               '(90 . 90)
+                             '(100 . 100))))
+    (set-frame-parameter nil 'alpha new-transparency)
+    (add-to-list 'default-frame-alist `(alpha . ,new-transparency))))
+
+(bind-key "M-," 'k-l/open-user-config override-global-map)
+(bind-key* "M-k t" 'k-l/alpha-toggle)
+
