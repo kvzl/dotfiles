@@ -61,7 +61,7 @@
 (use-package doom-themes
   :demand t
   :init
-  (setq doom-themes-enable-bold t) 
+  (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t)
 
   :config
@@ -103,7 +103,7 @@
   (setq dashboard-center-content t)
   (setq dashboard-projects-backend 'project-el)
 
-  (defun kvzl/dashboard-init-info ()
+  (defun k-l/dashboard-init-info ()
     (let ((package-count 0))
       (when (bound-and-true-p package-alist)
         (setq package-count (length package-activated-list)))
@@ -118,7 +118,7 @@
                        (time-subtract after-init-time before-init-time)))
               gcs-done)))
 
-  (setq dashboard-init-info 'kvzl/dashboard-init-info)
+  (setq dashboard-init-info 'k-l/dashboard-init-info)
 
   :config
   (dashboard-setup-startup-hook))
@@ -245,6 +245,39 @@
    :preview-key '(:debounce 0.4 any))
   )
 
+(use-package orderless
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
+
+(use-package embark
+  :bind
+  (("C-S-a" . embark-act)
+   ("C-S-d" . embark-dwim)
+   ("C-h B" . embark-bindings))
+
+  :init
+  ;; Optionally replace the key help with a completing-read interface
+  (setq prefix-help-command #'embark-prefix-help-command)
+
+  ;; Show the Embark target at point via Eldoc.  You may adjust the Eldoc
+  ;; strategy, if you want to see the documentation from multiple providers.
+  (add-hook 'eldoc-documentation-functions #'embark-eldoc-first-target)
+  ;; (setq eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
+
+  :config
+  ;; Hide the mode line of the Embark live/completions buffers
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+                 nil
+                 (window-parameters (mode-line-format . none)))))
+
+;; Consult users will also want the embark-consult package.
+(use-package embark-consult
+  :ensure t ; only need to install it, embark loads it after consult if found
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
+
 (use-package vterm
   :defer 1
   :bind
@@ -326,9 +359,9 @@
 	        :right
 	        (omit yank index)))
   (dirvish-override-dired-mode)
-  
-  :bind
-  ("M-[" . dirvish-side))
+
+  :bind*
+  ("M-k s" . dirvish-side))
 
 (use-package eldoc-box
   :defer 3)
@@ -496,6 +529,7 @@
     (set-frame-parameter nil 'alpha new-transparency)
     (add-to-list 'default-frame-alist `(alpha . ,new-transparency))))
 
-(bind-key "M-," 'k-l/open-user-config override-global-map)
+(bind-key* "M-[" 'previous-buffer)
+(bind-key* "M-]" 'next-buffer)
+(bind-key* "M-," 'k-l/open-user-config)
 (bind-key* "M-k t" 'k-l/alpha-toggle)
-
