@@ -347,6 +347,14 @@
   :hook
   (prog-mode . copilot-mode))
 
+(use-package gptel
+  :defer 2)
+
+(use-package gptel-extensions
+  :defer t
+  :after gptel
+  :straight (:host github :repo "kamushadenes/gptel-extensions.el" :files ("gptel-extensions.el")))
+
 (use-package electric
   :defer 2
   :straight (:type built-in)
