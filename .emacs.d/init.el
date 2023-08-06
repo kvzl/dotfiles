@@ -434,6 +434,11 @@
 
 (add-hook 'prog-mode-hook 'global-prettify-symbols-mode)
 
+;; Only run delete-trailing-whitespace when in prog-mode and save file
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'delete-trailing-whitespace nil 'local)))
+
 (setq major-mode-remap-alist
       '((yaml-mode . yaml-ts-mode)
         (bash-mode . bash-ts-mode)
