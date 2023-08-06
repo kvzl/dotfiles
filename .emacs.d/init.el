@@ -32,8 +32,9 @@
   :commands exec-path-from-shell-copy-env
   :init
   (setq exec-path-from-shell-arguments nil)
+  (setq exec-path-from-shell-variables '("PATH" "MANPATH"))
   (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-copy-env "PATH")))
+    (exec-path-from-shell-initialize)))
 
 (use-package all-the-icons
   :if (display-graphic-p))
