@@ -64,6 +64,10 @@
 
 (setq backup-directory-alist `(("." . "~/.saves")))
 
+;; Global key bindings
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; Make ESC quit prompts
+(global-set-key (kbd "M-/") 'comment-or-uncomment-region)
+
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum)
 (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold 800000)))
