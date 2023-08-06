@@ -399,6 +399,8 @@
         (css-mode . css-ts-mode)))
 
 (add-to-list 'auto-mode-alist '(".tsx?$" . typescript-ts-mode))
+(add-to-list 'auto-mode-alist '(".*rc$" . bash-ts-mode))
+
 
 (use-package treesit-auto
   :defer 3
