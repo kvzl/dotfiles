@@ -10,9 +10,9 @@ sketchybar --bar \
            padding_left=10 \
            padding_right=10 \
            color=0xaa1f2229 \
-           corner_radius=10 \
-           margin=6 \
-           y_offset=4
+           corner_radius=0 \
+           margin=0 \
+           y_offset=0
 
 sketchybar --default \
            icon.font="$FONT_FACE:Bold:13.0"  \
@@ -37,6 +37,7 @@ sketchybar --add item front_app center \
            icon.drawing=off \
            --subscribe front_app front_app_switched
 
+
 SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 
 for i in "${!SPACE_ICONS[@]}"
@@ -50,14 +51,19 @@ do
                background.height=20 \
                background.drawing=off \
                label.drawing=off \
+               icon.padding_left=8 \
+               icon.padding_right=8 \
+               padding_left=0 \
+               padding_right=2 \
+               margin=0 \
                script="$PLUGIN_DIR/space.sh" \
                click_script="yabai -m space --focus $sid"
 done
 
 sketchybar --add item space_separator left \
            --set space_separator \
-           icon= \
-           padding_left=10 \
+           icon= \
+           padding_left=8 \
            padding_right=10 \
            label.drawing=off
 
@@ -65,19 +71,18 @@ sketchybar --add item clock right \
            --set clock \
            script="$PLUGIN_DIR/clock.sh" \
            icon=  \
-           update_freq=10 \
+           update_freq=10
 
-
-sketchybar --add item wifi right \
-           --set wifi \
-           script="$PLUGIN_DIR/wifi.sh" \
-           icon= \
-           --subscribe wifi wifi_change 
+# sketchybar --add item wifi right \
+#            --set wifi \
+#            script="$PLUGIN_DIR/wifi.sh" \
+#            icon= \
+#            --subscribe wifi wifi_change
 
 sketchybar --add item volume right \
            --set volume \
            script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change 
+           --subscribe volume volume_change
 
 sketchybar --add item battery right \
            --set battery \
@@ -85,5 +90,13 @@ sketchybar --add item battery right \
            update_freq=120 \
            --subscribe battery system_woke power_source_change
 
-sketchybar --update
+media=(
+  script="$PLUGIN_DIR/media.sh"
+  updates=on
+)
 
+sketchybar --add item media right \
+           --set media "${media[@]}" \
+           --subscribe media media_change
+
+sketchybar --update
