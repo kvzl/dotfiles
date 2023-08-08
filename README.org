@@ -1,7 +1,5 @@
 #+TITLE: dotfiles
 
-[[./screenshots/full.png]]
-
 ** Environment
 
 Currently:
@@ -19,26 +17,31 @@ Not in use:
 - Tmux
 - iTerm2
 
+** Prerequisite
+
+To begin, please install Homebrew by running the following command in your shell:
+
+#+begin_src shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#+end_src
+
 ** Installation
 
-Get the dotfiles:
+Obtain the dotfiles and initialize [[https://github.com/anishathalye/dotbot][Dotbot]]:
 
 #+begin_src shell
   git clone git@github.com:kvzl/dotfiles.git
   cd dotfiles
-#+end_src
-
-
-Initialize [[https://github.com/anishathalye/dotbot][Dotbot]]:
-
-#+begin_src shell
   ./install
 #+end_src
 
-
-Install [[https://brew.sh/][Homebrew]] and get the apps, utilities by running:
+Install applications and utilities using Homebrew Bundle:
 
 #+begin_src shell
   brew bundle
 #+end_src
 
+
+** Screenshot
+
+[[./screenshots/full.png]]
