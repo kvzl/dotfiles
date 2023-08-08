@@ -71,6 +71,7 @@ sketchybar --add item clock right \
            --set clock \
            script="$PLUGIN_DIR/clock.sh" \
            icon=  \
+           icon.color="0xff54b0eb" \
            update_freq=10
 
 # sketchybar --add item wifi right \
