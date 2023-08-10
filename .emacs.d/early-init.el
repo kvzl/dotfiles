@@ -20,7 +20,7 @@
         insert-directory-program "/opt/homebrew/bin/gls"
 	      dired-listing-switches "-aABDhlG --group-directories-first"))
 
-(setq frame-resize-pixelwise t) 
+(setq frame-resize-pixelwise t)
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 
 (setq native-comp-async-report-warnings-errors nil)
@@ -72,3 +72,11 @@
 (setq gc-cons-threshold most-positive-fixnum)
 (add-hook 'after-init-hook (lambda () (setq gc-cons-threshold 800000)))
 
+;; Tramp
+(setq remote-file-name-inhibit-cache nil)
+(setq vc-ignore-dir-regexp
+      (format "%s\\|%s"
+                    vc-ignore-dir-regexp
+                    tramp-file-name-regexp))
+(setq tramp-verbose 1)
+(setq make-backup-files nil)
