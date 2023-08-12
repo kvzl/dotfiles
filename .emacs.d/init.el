@@ -79,12 +79,11 @@
 
   ;; ===> Light themes
   ;; (load-theme 'doom-flatwhite t)
-
-
   ;; (load-theme 'doom-one-light t)
   ;; (load-theme 'doom-homage-white t)
   ;; (load-theme 'doom-ayu-light t)
   ;; (load-theme 'doom-plain t)
+  ;; (load-theme 'doom-tomorrow-day t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
@@ -177,14 +176,17 @@
   :hook
   (marginalia-mode . all-the-icons-completion-marginalia-setup))
 
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 (use-package consult
   :bind (
-	       ("C-c M-x" . consult-mode-command)
-	       ("C-c h" . consult-history)
-	       ("C-c k" . consult-kmacro)
-	       ("C-c m" . consult-man)
-	       ("C-c i" . consult-info)
-	       ([remap Info-search] . consult-info)
+         ("C-c M-x" . consult-mode-command)
+         ("C-c h" . consult-history)
+         ("C-c k" . consult-kmacro)
+         ("C-c m" . consult-man)
+         ("C-c i" . consult-info)
+         ([remap Info-search] . consult-info)
 
 	       ;; C-x bindings in `ctl-x-map'
 	       ("C-x M-:" . consult-complex-command)     ;; orig. repeat-complex-command
@@ -424,7 +426,9 @@
                             "<*>" "<|" "<|>" "<$" "<$>" "<!--" "<-" "<--" "<->" "<+"
                             "<+>" "<=" "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<"
                             "<~" "<~~" "</" "</>" "~@" "~-" "~>" "~~" "~~>" "%%"))
-  (set-face-attribute 'default nil :font "Fira Code" :height 130)
+  (set-face-attribute 'default nil :family "Iosevka" :height 130)
+  (set-face-attribute 'variable-pitch nil :family "Iosevka Aile")
+  (setq-default line-spacing 1)
   :hook
   (prog-mode . ligature-mode))
 
@@ -516,6 +520,9 @@
    ".blade.php$"
    ))
 
+(use-package org-modern
+  :hook
+  (org-mode . org-modern-mode))
 
 ;;
 ;; Custom functions
