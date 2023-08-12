@@ -43,14 +43,7 @@
 (setq-default tab-width 2)
 (setq evil-shift-width 2)
 
-;; Fonts
-(setq-default line-spacing 1)
-;; (set-face-attribute 'default nil :font "Jetbrains Mono" :height 120)  ;; should be called after initializing ligature.el
-
-(let ((frame-transparency '(90 . 90)))
-  (set-frame-parameter (selected-frame) 'alpha frame-transparency)
-  (add-to-list 'default-frame-alist `(alpha . ,frame-transparency)))
-
+;; Line numbers
 (column-number-mode)
 (global-display-line-numbers-mode t)
 
