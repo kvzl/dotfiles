@@ -52,6 +52,7 @@ cask "font-cascadia-mono"
 cask "font-cascadia-code"
 cask "font-hack-nerd-font"
 cask "font-noto-sans-cjk", args: { require_sha: false }
+cask "font-iosevka"
 
 # DevOps tools
 tap "hashicorp/tap"
@@ -89,4 +90,3 @@ brew "neovim"
 brew "rust-analyzer"
 brew "hashicorp/tap/terraform-ls"
 brew "typescript-language-server"
-
