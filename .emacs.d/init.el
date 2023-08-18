@@ -543,5 +543,5 @@
 
 (bind-key* "M-[" 'previous-buffer)
 (bind-key* "M-]" 'next-buffer)
-(bind-key* "M-," 'k-l/open-user-config)
+(bind-key* "M-k ," 'k-l/open-user-config)
 (bind-key* "M-k t" 'k-l/alpha-toggle)
