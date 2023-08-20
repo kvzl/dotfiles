@@ -32,7 +32,7 @@
   :commands exec-path-from-shell-copy-env
   :init
   (setq exec-path-from-shell-arguments nil)
-  (setq exec-path-from-shell-variables '("PATH" "MANPATH"))
+  (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GOPATH"))
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
@@ -451,7 +451,8 @@
         (js2-mode . js-ts-mode)
         (typescript-mode . typescript-ts-mode)
         (json-mode . json-ts-mode)
-        (css-mode . css-ts-mode)))
+        (css-mode . css-ts-mode)
+        (go-mode . go-ts-mode)))
 
 (add-to-list 'auto-mode-alist '(".tsx?$" . typescript-ts-mode))
 (add-to-list 'auto-mode-alist '(".*rc$" . bash-ts-mode))
@@ -477,7 +478,10 @@
   (rust-ts-mode . lsp)
   (typescript-ts-mode . lsp)
   (typescript-mode . lsp)
+  (go-ts-mode . lsp)
   (lsp-mode . lsp-enable-which-key-integration) ;; which-key integration
+  (before-save . lsp-format-buffer)
+  (before-save . lsp-organize-imports)
 
   :commands lsp)
 
@@ -535,6 +539,9 @@
 (use-package org-modern
   :hook
   (org-mode . org-modern-mode))
+
+(use-package go-mode
+  :defer t)
 
 ;;
 ;; Custom functions
