@@ -537,6 +537,8 @@
    ))
 
 (use-package org-modern
+  :init
+  (setq org-modern-table nil)
   :hook
   (org-mode . org-modern-mode))
 
