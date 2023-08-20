@@ -13,6 +13,7 @@
     ~/.zplugrc: .zplugrc
     ~/.zsh_aliases: .zsh_aliases
     ~/.zshrc: .zshrc
+    ~/.zshenv: .zshenv
     ~/.p10k.zsh: .p10k.zsh
     ~/.emacs.d: .emacs.d
     ~/.alacritty.yml: .alacritty.yml
