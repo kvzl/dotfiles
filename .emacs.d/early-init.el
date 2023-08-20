@@ -73,3 +73,6 @@
                     tramp-file-name-regexp))
 (setq tramp-verbose 1)
 (setq make-backup-files nil)
+(setq backup-inhibited t)
+(setq auto-save-list-file-prefix nil)
+(setq auto-save-default nil)
