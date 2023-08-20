@@ -513,12 +513,11 @@
 (use-package gitlab-ci-mode
   :defer t)
 
-(use-package rust-mode
+(use-package rustic
   :defer t
-  :config
-  (setq rust-format-on-save t)
-  :hook
-  (rust-mode . prettify-symbols-mode))
+  :custom
+  (rustic-format-on-save t)
+  (rustic-format-trigger 'on-save))
 
 (use-package php-mode
   :defer t)
