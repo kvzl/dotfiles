@@ -206,7 +206,7 @@
 
 	       ;; M-g bindings in `goto-map'
 	       ("M-g e" . consult-compile-error)
-	       ("M-g f" . consult-flymake)               ;; Alternative: consult-flycheck
+	       ("M-g f" . consult-flycheck)               ;; Alternative: consult-flycheck
 	       ("M-g g" . consult-goto-line)             ;; orig. goto-line
 	       ("M-g M-g" . consult-goto-line)           ;; orig. goto-line
 	       ("M-g o" . consult-outline)               ;; Alternative: consult-org-heading
@@ -246,6 +246,8 @@
    ;; :preview-key "M-."
    :preview-key '(:debounce 0.4 any))
   )
+
+(use-package consult-flycheck)
 
 (use-package orderless
   :custom
@@ -461,19 +463,30 @@
   (setq treesit-auto-install 'prompt)
   (global-treesit-auto-mode))
 
-(use-package eglot
-  :defer t
-  :straight (:type built-in)
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  (setq lsp-inlay-hint-enable t)
 
-  :config
-  (add-to-list 'eglot-server-programs '(rust-ts-mode . ("rust-analyzer")))
-  (add-to-list 'eglot-server-programs '(terraform-mode . ("terraform-ls" "serve")))
+  :custom
+  (lsp-rust-analyzer-server-display-inlay-hints t)
+  (lsp-rust-analyzer-inlay-hints-mode t)
 
   :hook
-  (terraform-mode . eglot-ensure)
-  (rust-ts-mode . eglot-ensure)
-  (typescript-ts-mode . eglot-ensure)
-  (typescript-mode . eglot-ensure))
+  (terraform-mode . lsp)
+  (rust-ts-mode . lsp)
+  (typescript-ts-mode . lsp)
+  (typescript-mode . lsp)
+  (lsp-mode . lsp-enable-which-key-integration) ;; which-key integration
+
+  :commands lsp)
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :init
+  (setq lsp-ui-sideline-enable t)
+  (setq lsp-ui-peek-always-show t)
+  (setq lsp-ui-sideline-show-hover t))
 
 (use-package markdown-mode
   :defer t
