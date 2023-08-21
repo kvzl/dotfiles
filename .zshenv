@@ -1,6 +1,7 @@
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export LANG=en_US.UTF-8
 
