@@ -150,6 +150,10 @@
   :config
   (global-evil-surround-mode 1))
 
+(use-package origami
+  :hook
+  (prog-mode . origami-mode)
+  (yaml-mode . origami-mode))
 
 (use-package vertico
   :init
