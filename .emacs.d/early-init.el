@@ -60,6 +60,7 @@
 ;; Global key bindings
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; Make ESC quit prompts
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
+(global-set-key (kbd "M-`") 'other-frame)
 
 ;; Defer garbage collection further back in the startup process
 (setq gc-cons-threshold most-positive-fixnum)
