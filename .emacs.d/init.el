@@ -586,6 +586,9 @@
 (use-package go-mode
   :defer t)
 
+(use-package cider
+  :defer t)
+
 ;;
 ;; Custom functions
 ;;
