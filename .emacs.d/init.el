@@ -567,6 +567,16 @@
    ".blade.php$"
    ))
 
+(use-package k8s-mode
+  :mode
+  ("deployment.*.yaml$"
+   "configmap.*.yaml$"
+   "secret.*.yaml$"
+   "service.*.yaml$"
+   "ingress.*.yaml$"
+   "hpa.*.yaml$"
+   "_helpers.tpl"))
+
 (use-package org-modern
   :init
   (setq org-modern-table nil)
