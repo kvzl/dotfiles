@@ -508,7 +508,6 @@
   (terraform-mode . lsp)
   (rust-ts-mode . lsp)
   (typescript-ts-mode . lsp)
-  (typescript-mode . lsp)
   (go-ts-mode . lsp)
   (lsp-mode . lsp-enable-which-key-integration) ;; which-key integration
   (before-save . lsp-format-buffer)
@@ -580,6 +579,7 @@
 (use-package org-modern
   :init
   (setq org-modern-table nil)
+  (setq org-modern-block-fringe 1)
   :hook
   (org-mode . org-modern-mode))
 
