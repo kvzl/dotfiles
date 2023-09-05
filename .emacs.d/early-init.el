@@ -52,7 +52,8 @@
                 shell-mode-hook
                 eshell-mode-hook
 		            vterm-mode-hook
-		            dired-mode-hook))
+		            dired-mode-hook
+                treemacs-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (setq backup-directory-alist `(("." . "~/.saves")))
