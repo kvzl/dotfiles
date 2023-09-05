@@ -313,15 +313,6 @@
   :init
   (savehist-mode))
 
-(use-package edwina
-  :defer 2
-  :init
-  (setq display-buffer-base-action '(display-buffer-below-selected))
-
-  :config
-  (edwina-setup-dwm-keys 'hyper)
-  (edwina-mode 1))
-
 (use-package transpose-frame
   :defer 2
   :bind
