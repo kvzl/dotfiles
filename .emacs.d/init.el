@@ -487,6 +487,10 @@
   :config
   (setq whitespace-style '(face trailing)))
 
+(use-package autorevert
+  :straight (:type built-in)
+  :hook (after-init . global-auto-revert-mode))
+
 (use-package kubernetes
   :defer 2
   :commands (kubernetes-overview)
