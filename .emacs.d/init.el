@@ -481,6 +481,12 @@
   :config
   (electric-pair-mode +1))
 
+(use-package whitespace
+  :straight (:type built-in)
+  :hook ((prog-mode markdown-mode conf-mode) . whitespace-mode)
+  :config
+  (setq whitespace-style '(face trailing)))
+
 (use-package kubernetes
   :defer 2
   :commands (kubernetes-overview)
