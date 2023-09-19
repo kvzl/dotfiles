@@ -466,7 +466,9 @@
   (prog-mode . copilot-mode))
 
 (use-package gptel
-  :defer 2)
+  :defer 2
+  :init
+  (setq gptel-model "gpt-4"))
 
 (use-package gptel-extensions
   :defer t
