@@ -659,6 +659,10 @@
   :hook
   (org-mode . org-modern-mode))
 
+(use-package org-preview-html
+  :defer 2
+  :init
+  (setq org-preview-html-viewer 'xwidget))
 
 
 
