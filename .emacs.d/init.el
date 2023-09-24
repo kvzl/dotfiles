@@ -437,6 +437,11 @@
   :straight (:type built-in)
   :hook (after-init . global-auto-revert-mode))
 
+(use-package git-gutter
+  :defer 2
+  :config
+  (global-git-gutter-mode t))
+
 (use-package kubernetes
   :defer 2
   :commands (kubernetes-overview)
