@@ -80,6 +80,7 @@ brew "k3d"
 brew "kubecm"
 brew "hadolint"
 brew "terraform-docs"
+brew "krew"
 
 tap "cargo-lambda/cargo-lambda"
 brew "cargo-lambda"
