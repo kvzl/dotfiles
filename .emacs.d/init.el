@@ -89,10 +89,7 @@
   (doom-themes-visual-bell-config)
 
   ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config)
-
-  (setq doom-themes-treemacs-theme "doom-colors")
-  (doom-themes-treemacs-config))
+  (doom-themes-org-config))
 
 (use-package dashboard
   :demand t
@@ -395,63 +392,6 @@
    ("M-s" . dirvish-setup-menu)
    ("M-e" . dirvish-emerge-menu)))
 
-(use-package treemacs
-  :defer t
-
-  :init
-  (setq treemacs-indentation 1)
-  (setq treemacs-read-string-input 'from-minibuffer)
-  (setq treemacs-litter-directories '("/node_modules" "/.venv" "/.cask"))
-
-  :config
-  (setq treemacs-collapse-dirs (if treemacs-python-executable 3 0))
-  (treemacs-follow-mode t)
-  (treemacs-project-follow-mode t)
-  (treemacs-display-current-project-exclusively)
-  (treemacs-filewatch-mode t)
-  (treemacs-fringe-indicator-mode 'always)
-  (when treemacs-python-executable
-    (treemacs-git-commit-diff-mode t))
-
-  (pcase (cons (not (null (executable-find "git")))
-               (not (null treemacs-python-executable)))
-    (`(t . t)
-     (treemacs-git-mode 'deferred))
-    (`(t . _)
-     (treemacs-git-mode 'simple)))
-
-  (treemacs-hide-gitignored-files-mode nil)
-
-  (dolist (face '(treemacs-root-face
-                  treemacs-git-unmodified-face
-                  treemacs-git-modified-face
-                  treemacs-git-renamed-face
-                  treemacs-git-ignored-face
-                  treemacs-git-untracked-face
-                  treemacs-git-added-face
-                  treemacs-git-conflict-face
-                  treemacs-directory-face
-                  treemacs-directory-collapsed-face
-                  treemacs-file-face
-                  treemacs-tags-face))
-    (set-face-attribute face nil :family "Iosevka" :height 130))
-
-  :bind
-  (:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t d"   . treemacs-select-directory)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
-
-(use-package treemacs-evil
-  :after (treemacs evil))
-
-(use-package treemacs-magit
-  :after (treemacs magit))
-
 (use-package eldoc-box
   :defer 3)
 
@@ -582,9 +522,6 @@
   (setq lsp-ui-sideline-enable t)
   (setq lsp-ui-peek-always-show t)
   (setq lsp-ui-sideline-show-hover t))
-
-(use-package lsp-treemacs
-  :commands lsp-treemacs-errors-list)
 
 (use-package markdown-mode
   :defer t
