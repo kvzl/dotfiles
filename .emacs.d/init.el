@@ -153,6 +153,11 @@
   :config
   (global-evil-surround-mode 1))
 
+(use-package evil-easymotion
+  :defer 2
+  :config
+  (evilem-default-keybindings "SPC"))
+
 (use-package origami
   :hook
   (prog-mode . origami-mode)
