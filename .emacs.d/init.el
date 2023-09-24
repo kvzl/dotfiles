@@ -347,7 +347,6 @@
   :defer t
 
   :init
-  (setq dirvish-side-auto-close t)
   (setq dirvish-attributes
 	      '(vc-state
 	        subtree-state
@@ -374,7 +373,7 @@
   (dirvish-side-follow-mode)
 
   :bind*
-  ("M-k s" . dirvish-side)
+  ("M-b" . dirvish-side)
 
   :bind
   (("C-c f" . dirvish-fd)
