@@ -503,11 +503,6 @@
 (use-package kubernetes-evil
   :after kubernetes)
 
-(use-package valign
-  :defer t
-  :hook
-  (org-mode . valign-mode))
-
 (use-package ligature
   :config
   (ligature-set-ligatures '(prog-mode)
@@ -526,7 +521,6 @@
   (setq-default line-spacing 1)
   :hook
   (prog-mode . ligature-mode))
-
 
 ;;
 ;; Language modes
@@ -642,6 +636,22 @@
    "hpa.*.yaml$"
    "_helpers.tpl"))
 
+(use-package go-mode
+  :defer t)
+
+(use-package cider
+  :defer t)
+
+;;
+;; Org mode
+;;
+
+(add-hook 'org-mode-hook 'org-indent-mode)
+
+(use-package valign
+  :hook
+  (org-mode . valign-mode))
+
 (use-package org-modern
   :init
   (setq org-modern-table nil)
@@ -649,11 +659,8 @@
   :hook
   (org-mode . org-modern-mode))
 
-(use-package go-mode
-  :defer t)
 
-(use-package cider
-  :defer t)
+
 
 ;;
 ;; Custom functions
