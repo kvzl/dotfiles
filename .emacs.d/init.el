@@ -310,13 +310,7 @@
   :config
   (which-key-mode))
 
-(use-package savehist
-  :defer 1
-  :init
-  (savehist-mode))
-
 (use-package transpose-frame
-  :defer 2
   :bind
   ("M-S-SPC" . transpose-frame))
 
@@ -393,7 +387,7 @@
    ("M-e" . dirvish-emerge-menu)))
 
 (use-package eldoc-box
-  :defer 3)
+  :defer 2)
 
 (use-package copilot
   :defer t
@@ -410,7 +404,7 @@
   (prog-mode . copilot-mode))
 
 (use-package gptel
-  :defer 2
+  :defer t
   :init
   (setq gptel-model "gpt-4"))
 
@@ -441,16 +435,6 @@
   :defer 2
   :config
   (global-git-gutter-mode t))
-
-(use-package kubernetes
-  :defer 2
-  :commands (kubernetes-overview)
-  :init
-  (setq kubernetes-poll-frequency 3600
-        kubernetes-redraw-frequency 3600))
-
-(use-package kubernetes-evil
-  :after kubernetes)
 
 (use-package ligature
   :config
@@ -496,7 +480,7 @@
 
 
 (use-package treesit-auto
-  :defer 3
+  :defer 2
   :config
   (setq treesit-auto-install 'prompt)
   (global-treesit-auto-mode))
@@ -606,7 +590,8 @@
   (org-mode . org-modern-mode))
 
 (use-package org-preview-html
-  :defer 2
+  :defer t
+  :commands org-preview-html-mode
   :init
   (setq org-preview-html-viewer 'xwidget))
 
