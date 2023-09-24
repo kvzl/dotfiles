@@ -1,3 +1,5 @@
+[[ -s "$HOME/.profile" ]] && . "$HOME/.profile"
+
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
