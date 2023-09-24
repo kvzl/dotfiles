@@ -43,6 +43,8 @@ brew "pyenv"
 brew "nvm"
 brew "pipenv"
 brew "go"
+tap "oven-sh/bun"
+brew "bun"
 
 # Fonts
 tap "homebrew/cask-fonts"
