@@ -45,6 +45,7 @@ brew "pipenv"
 brew "go"
 tap "oven-sh/bun"
 brew "bun"
+brew "zig"
 
 # Fonts
 tap "homebrew/cask-fonts"
@@ -79,6 +80,9 @@ brew "k3d"
 brew "kubecm"
 brew "hadolint"
 brew "terraform-docs"
+
+tap "cargo-lambda/cargo-lambda"
+brew "cargo-lambda"
 
 # Editors
 cask "visual-studio-code"
