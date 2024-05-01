@@ -4,7 +4,7 @@ cask_args appdir: "~/Applications", require_sha: true
 # Utilities
 brew "cmake"
 brew "wget"
-brew "exa"
+brew "eza"
 brew "git"
 brew "jq"
 brew "pre-commit"
