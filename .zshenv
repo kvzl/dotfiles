@@ -19,12 +19,6 @@ SAVEHIST=10000
 # composer
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-# doom
-export PATH="$HOME/.emacs.d/bin:$PATH"
-
-# custom scripts
-export PATH="$HOME/Scripts:$PATH"
-
 # sdkman
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
