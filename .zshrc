@@ -21,6 +21,9 @@ source $HOME/.zplugrc
 
 fpath+=~/.zfunc
 
+# Enable vi mode for zsh
+bindkey -v
+
 # apply aliases
 if [ -f "$HOME/.zsh_aliases" ]; then
 	source "$HOME/.zsh_aliases"
