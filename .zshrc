@@ -31,3 +31,11 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh) # add autocomplete permanently to your zsh shell
+
+# fzf
+[[ ! "$(command -v fzf)" ]] || eval "$(fzf --zsh)"
+
+# zoxide
+[[ ! "$(command -v zoxide)" ]] || eval "$(zoxide init zsh --cmd z)"

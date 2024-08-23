@@ -1,5 +1,5 @@
 tap "homebrew/cask"
-cask_args appdir: "~/Applications", require_sha: true
+# cask_args appdir: "~/Applications", require_sha: true
 
 # Utilities
 brew "cmake"
@@ -69,7 +69,6 @@ brew "mutagen-compose"
 cask "lens"
 cask "tableplus"
 cask "google-cloud-sdk", args: { require_sha: false }
-cask "docker"
 cask "orbstack"
 
 brew "awscli"
