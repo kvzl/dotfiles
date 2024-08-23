@@ -23,6 +23,8 @@
 (setq frame-resize-pixelwise t)
 (add-to-list 'default-frame-alist '(undecorated-round . t))
 
+(setq project-vc-extra-root-markers '(".project"))
+
 (setq native-comp-async-report-warnings-errors nil)
 (setq native-comp-async-query-on-exit t)
 

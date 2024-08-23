@@ -76,6 +76,9 @@
   ;; (load-theme 'doom-city-lights t)
   ;; (load-theme 'doom-ayu-dark t)
   ;; (load-theme 'doom-ayu-mirage t)
+  ;; (load-theme 'doom-material-dark t)
+  ;; (load-theme 'doom-palenight t)
+  ;; (load-theme 'doom-nord-aurora t)
 
   ;; ===> Light themes
   ;; (load-theme 'doom-flatwhite t)
@@ -96,11 +99,13 @@
   :after all-the-icons
   :init
   (setq dashboard-items '((projects . 5)
-			                    (recents . 5)))
+			                    (recents . 5)
+                          (agenda . 5)))
   (setq dashboard-icon-type 'all-the-icons)
   (setq dashboard-set-file-icons t)
   (setq dashboard-center-content t)
   (setq dashboard-projects-backend 'project-el)
+  (setq dashboard-startup-banner 2)
 
   (defun k-l/dashboard-init-info ()
     (let ((package-count 0))
@@ -158,7 +163,7 @@
 (use-package origami
   :hook
   (prog-mode . origami-mode)
-  (yaml-mode . origami-mode))
+  (yaml-ts-mode . origami-mode))
 
 (use-package vertico
   :init
@@ -230,7 +235,7 @@
 	       ("M-s D" . consult-locate)
 	       ("M-s g" . consult-grep)
 	       ("M-s G" . consult-git-grep)
-	       ("M-s r" . consult-ripgrep)
+	       ("C-x p f" . consult-ripgrep)
 	       ("M-s l" . consult-line)
 	       ("M-s L" . consult-line-multi)
 	       ("M-s k" . consult-keep-lines)
@@ -390,7 +395,7 @@
   :defer 2)
 
 (use-package copilot
-  :defer t
+  :defer 2
   :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
 
   :config
@@ -399,6 +404,7 @@
   (define-key copilot-completion-map (kbd "TAB") 'copilot-accept-completion)
   (add-to-list 'copilot-major-mode-alist '("typescript-ts" . "typescript"))
   (add-to-list 'copilot-major-mode-alist '("rust-ts" . "rust"))
+  (add-to-list 'copilot-major-mode-alist '("js-ts" . "javascript"))
 
   :hook
   (prog-mode . copilot-mode))
@@ -470,6 +476,7 @@
       '((yaml-mode . yaml-ts-mode)
         (bash-mode . bash-ts-mode)
         (js2-mode . js-ts-mode)
+        (javascript-mode . js-ts-mode)
         (typescript-mode . typescript-ts-mode)
         (json-mode . json-ts-mode)
         (css-mode . css-ts-mode)
@@ -576,6 +583,8 @@
 ;; Org mode
 ;;
 
+(setq org-agenda-files '("~/Org"))
+
 (add-hook 'org-mode-hook 'org-indent-mode)
 
 (use-package valign
@@ -586,6 +595,7 @@
   :init
   (setq org-modern-table nil)
   (setq org-modern-block-fringe 1)
+  (setq org-modern-timestamp nil)
   :hook
   (org-mode . org-modern-mode))
 
@@ -595,7 +605,8 @@
   :init
   (setq org-preview-html-viewer 'xwidget))
 
-
+(setq org-todo-keywords
+  '((sequence "TODO" "IN-PROGRESS" "PENDING" "DONE")))
 
 ;;
 ;; Custom functions
