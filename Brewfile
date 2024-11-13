@@ -24,8 +24,9 @@ brew "poppler"
 brew "ffmpegthumbnailer"
 brew "mediainfo"
 brew "imagemagick"
+brew "zoxide"
+brew "karabiner-elements"
 
-cask "microsoft-edge"
 cask "raycast", args: { require_sha: false }
 cask "obsidian"
 cask "clipy"
@@ -35,8 +36,8 @@ cask "iterm2"
 cask "kitty"
 cask "amethyst"
 
-tap "FelixKratz/formulae"
-brew "sketchybar"
+# tap "FelixKratz/formulae"
+# brew "sketchybar"
 
 # Programming languages
 brew "pyenv"
@@ -85,10 +86,10 @@ tap "cargo-lambda/cargo-lambda"
 brew "cargo-lambda"
 
 # Editors
-cask "visual-studio-code"
+# cask "visual-studio-code"
 
-tap "d12frosted/emacs-plus"
-brew "emacs-plus@29", args: ["with-imagemagick", "with-xwidgets", "with-poll", "with-native-comp", "with-savchenkovaleriy-big-sur-icon"]
+# tap "d12frosted/emacs-plus"
+# brew "emacs-plus@29", args: ["with-imagemagick", "with-xwidgets", "with-poll", "with-native-comp", "with-savchenkovaleriy-big-sur-icon"]
 
 brew "neovim"
 
