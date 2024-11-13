@@ -1,0 +1,54 @@
+# Utilities
+brew "cmake"
+brew "wget"
+brew "eza"
+brew "git"
+brew "jq"
+brew "pre-commit"
+brew "neofetch"
+brew "ripgrep"
+brew "tree"
+brew "git-delta"
+brew "fzf"
+brew "bat"
+brew "pandoc"
+brew "coreutils"
+brew "fd"
+brew "zoxide"
+
+
+# Programming languages
+brew "pyenv"
+brew "nvm"
+brew "pipenv"
+brew "go"
+
+# Fonts
+tap "homebrew/linux-fonts"
+brew "font-jetbrains-mono"
+brew "font-fira-code"
+brew "font-cascadia-mono"
+brew "font-cascadia-code"
+brew "font-hack-nerd-font"
+brew "font-noto-sans-cjk", args: { require_sha: false }
+brew "font-iosevka"
+
+# DevOps tools
+tap "hashicorp/tap"
+brew "terraform"
+brew "packer"
+
+brew "awscli"
+brew "helm"
+brew "kubecm"
+brew "hadolint"
+brew "terraform-docs"
+brew "krew"
+
+# Editors
+brew "neovim"
+
+# Language servers
+brew "rust-analyzer"
+brew "hashicorp/tap/terraform-ls"
+brew "typescript-language-server"

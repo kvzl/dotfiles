@@ -40,4 +40,4 @@ export GOPATH="$HOME/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
 # rust
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
