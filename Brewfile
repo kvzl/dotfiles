@@ -1,4 +1,3 @@
-tap "homebrew/cask"
 # cask_args appdir: "~/Applications", require_sha: true
 
 # Utilities
@@ -17,6 +16,7 @@ brew "bat"
 brew "tmux"
 brew "k6"
 brew "htop"
+brew "btop"
 brew "pandoc"
 brew "coreutils"
 brew "fd"
@@ -25,16 +25,18 @@ brew "ffmpegthumbnailer"
 brew "mediainfo"
 brew "imagemagick"
 brew "zoxide"
-brew "karabiner-elements"
+brew "neovim"
+brew "gitu"
 
+# Apps
+cask "karabiner-elements"
 cask "raycast", args: { require_sha: false }
 cask "obsidian"
-cask "clipy"
 cask "snipaste"
 cask "bartender"
-cask "iterm2"
 cask "kitty"
 cask "amethyst"
+cask "brave-browser"
 
 # tap "FelixKratz/formulae"
 # brew "sketchybar"
@@ -49,7 +51,7 @@ brew "bun"
 brew "zig"
 
 # Fonts
-tap "homebrew/cask-fonts"
+# tap "homebrew/cask-fonts"
 cask "font-jetbrains-mono"
 cask "font-fira-code"
 cask "font-cascadia-mono"
@@ -61,12 +63,7 @@ cask "font-iosevka"
 # DevOps tools
 tap "hashicorp/tap"
 brew "terraform"
-brew "packer"
-
-tap "mutagen-io/mutagen"
-brew "mutagen"
-brew "mutagen-compose"
-
+# brew "packer"
 cask "lens"
 cask "tableplus"
 cask "google-cloud-sdk", args: { require_sha: false }
@@ -74,26 +71,19 @@ cask "orbstack"
 
 brew "awscli"
 brew "helm"
-brew "skaffold"
-brew "minikube"
-brew "k3d"
 brew "kubecm"
 brew "hadolint"
 brew "terraform-docs"
 brew "krew"
 
-tap "cargo-lambda/cargo-lambda"
-brew "cargo-lambda"
+# Language servers
+brew "rust-analyzer"
+brew "hashicorp/tap/terraform-ls"
+brew "typescript-language-server"
 
-# Editors
+# Editors/IDE
 # cask "visual-studio-code"
 
 # tap "d12frosted/emacs-plus"
 # brew "emacs-plus@29", args: ["with-imagemagick", "with-xwidgets", "with-poll", "with-native-comp", "with-savchenkovaleriy-big-sur-icon"]
 
-brew "neovim"
-
-# Language servers
-brew "rust-analyzer"
-brew "hashicorp/tap/terraform-ls"
-brew "typescript-language-server"
