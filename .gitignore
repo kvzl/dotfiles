@@ -68,7 +68,7 @@ flycheck_*.el
 .config/*
 !.config/nvim
 !.config/kitty
-!.config/kitty
 !.config/sketchybar
 !.config/ghostty
+!.config/zellij
 
