@@ -61,6 +61,7 @@ cask "font-cascadia-code"
 cask "font-hack-nerd-font"
 cask "font-noto-sans-cjk", args: { require_sha: false }
 cask "font-iosevka"
+cask "font-google-sans-code"
 
 # DevOps tools
 tap "hashicorp/tap"
