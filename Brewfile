@@ -26,6 +26,7 @@ brew "mediainfo"
 brew "imagemagick"
 brew "zoxide"
 brew "neovim"
+brew "lazygit"
 
 # Apps
 cask "karabiner-elements"
@@ -49,6 +50,7 @@ brew "go"
 tap "oven-sh/bun"
 brew "bun"
 brew "zig"
+brew "luarocks"
 
 # Fonts
 # tap "homebrew/cask-fonts"
