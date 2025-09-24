@@ -26,7 +26,6 @@ brew "mediainfo"
 brew "imagemagick"
 brew "zoxide"
 brew "neovim"
-brew "gitu"
 
 # Apps
 cask "karabiner-elements"
