@@ -21,4 +21,5 @@ alias tfs='terraform state'
 alias kc='kubecm'
 
 # exa
-alias ls='eza'                                                         # ls
+alias ls='eza'
+alias la='eza -al'
