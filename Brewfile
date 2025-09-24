@@ -35,6 +35,7 @@ cask "obsidian"
 cask "snipaste"
 cask "bartender"
 cask "kitty"
+cask "ghostty"
 cask "amethyst"
 cask "brave-browser"
 

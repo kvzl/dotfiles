@@ -70,4 +70,5 @@ flycheck_*.el
 !.config/kitty
 !.config/kitty
 !.config/sketchybar
+!.config/ghostty
 
