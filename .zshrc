@@ -5,19 +5,23 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# zplug
-export ZPLUG_HOME="$HOME/.zplug"
+# zimfw
+ZIM_CONFIG_FILE=$HOME/.zimrc
+ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
-
-# Check if zplug is installed
-if [[ ! -d $ZPLUG_HOME ]]; then
-  git clone https://github.com/zplug/zplug $ZPLUG_HOME
-  source $ZPLUG_HOME/init.zsh && zplug update --self
-else
-  source $ZPLUG_HOME/init.zsh
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
 fi
 
-source $HOME/.zplugrc
+# Install missing modules and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZIM_CONFIG_FILE:-${ZDOTDIR:-${HOME}}/.zimrc} ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init
+fi
+
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
 
 fpath+=~/.zfunc
 

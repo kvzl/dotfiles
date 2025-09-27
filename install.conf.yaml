@@ -2,15 +2,16 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
-    ~/.dotfiles: ''
+    ~/.dotfiles: ""
     ~/.tmux: .tmux
     ~/.tmux.conf: .tmux.conf
     ~/.vim: .vim
     ~/.config: .config
     ~/.zplugrc: .zplugrc
+    ~/.zimrc: .zimrc
     ~/.zsh_aliases: .zsh_aliases
     ~/.zshrc: .zshrc
     ~/.zshenv: .zshenv
@@ -23,4 +24,4 @@
     - ~/Dev
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive, Installing submodules]
