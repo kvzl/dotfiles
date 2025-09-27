@@ -1,0 +1,19 @@
+zmodule romkatv/powerlevel10k --use degit
+
+zmodule zsh-users/zsh-autosuggestions
+zmodule zsh-users/zsh-completions
+zmodule completion # for plugins that require compdef
+
+zmodule zdharma-continuum/fast-syntax-highlighting
+zmodule ohmyzsh/ohmyzsh --root plugins/tmux
+zmodule ohmyzsh/ohmyzsh --root plugins/git
+zmodule ohmyzsh/ohmyzsh --root plugins/kubectl
+zmodule ohmyzsh/ohmyzsh --root plugins/docker-compose
+zmodule ohmyzsh/ohmyzsh --root plugins/pyenv
+zmodule hlissner/zsh-autopair
+zmodule molovo/tipz
+zmodule MichaelAquilina/zsh-autoswitch-virtualenv
+zmodule lukechilds/zsh-nvm
+
+zmodule zimfw/utility
+
