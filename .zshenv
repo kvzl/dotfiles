@@ -12,7 +12,6 @@ export EDITOR=vim
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
 
-
 # zsh
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
@@ -45,7 +44,8 @@ export PATH="$PNPM_HOME:$PATH"
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
 # gam
-alias gam="/Users/kevin.l/bin/gam7/gam"
+export PATH="$HOME/bin:$PATH"
+alias gam="$HOME/bin/gam7/gam"
 
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
