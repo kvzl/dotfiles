@@ -27,6 +27,7 @@ brew "mediainfo"
 brew "imagemagick"
 brew "zoxide"
 brew "neovim"
+brew "watch"
 brew "lazygit"
 
 # Apps
