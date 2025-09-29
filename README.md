@@ -5,7 +5,7 @@
 Currently:
 
 - OS: macOS ARM
-- Terminal: [Ghostty](https://ghostty.org/)
+- Terminal: [Ghostty](https://ghostty.org/) + [Zellij](https://github.com/zellij-org/zellij)
 - Shell: Zsh + [Zim](https://github.com/zimfw/zimfw) + [p10k](https://github.com/romkatv/powerlevel10k)
 - Editor: Neovim + [LazyVim](https://github.com/LazyVim/LazyVim)
 - Package manager: [Homebrew](https://brew.sh/) + [Brewfile](https://github.com/Homebrew/homebrew-bundle)
