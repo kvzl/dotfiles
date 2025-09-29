@@ -30,33 +30,38 @@ bindkey -v
 
 # apply aliases
 if [ -f "$HOME/.zsh_aliases" ]; then
-	source "$HOME/.zsh_aliases"
+	zsh-defer source "$HOME/.zsh_aliases"
 fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh) # add autocomplete permanently to your zsh shell
-
 # fzf
-[[ ! "$(command -v fzf)" ]] || eval "$(fzf --zsh)"
+[[ ! "$(command -v fzf)" ]] || zsh-defer _evalcache fzf --zsh
 
 # zoxide
-[[ ! "$(command -v zoxide)" ]] || eval "$(zoxide init zsh --cmd z)"
-#k9s
-export K9S_CONFIG_DIR="$HOME/.config/k9s"
+[[ ! "$(command -v zoxide)" ]] || zsh-defer _evalcache zoxide init zsh --cmd z
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+zsh-defer _evalcache pyenv init - zsh
+
 # zellij
 zellij_tab_name_update() {
-    if [[ -n $ZELLIJ ]]; then
-        local current_dir=$PWD
-        if [[ $current_dir == $HOME ]]; then
-            current_dir="~"
-        else
-            current_dir=${current_dir##*/}
-        fi
-        command nohup zellij action rename-tab $current_dir >/dev/null 2>&1
+  if [[ -n $ZELLIJ ]]; then
+    local current_dir=$PWD
+    if [[ $current_dir == $HOME ]]; then
+      current_dir="~"
+    else
+      current_dir=${current_dir##*/}
     fi
+    (command nohup zellij action rename-tab $current_dir >/dev/null 2>&1 &)
+  fi
 }
 
-zellij_tab_name_update
-chpwd_functions+=(zellij_tab_name_update)
+[[ -n $ZELLIJ ]] && {
+  zsh-defer zellij_tab_name_update
+  chpwd_functions+=(zellij_tab_name_update) 
+}
+
