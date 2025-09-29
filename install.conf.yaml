@@ -10,11 +10,11 @@
     ~/.tmux.conf: .tmux.conf
     ~/.vim: .vim
     ~/.config: .config
-    ~/.zplugrc: .zplugrc
     ~/.zimrc: .zimrc
     ~/.zsh_aliases: .zsh_aliases
     ~/.zshrc: .zshrc
     ~/.zshenv: .zshenv
+    ~/.zprofile: .zprofile
     ~/.p10k.zsh: .p10k.zsh
     ~/.emacs.d: .emacs.d
     ~/.alacritty.yml: .alacritty.yml

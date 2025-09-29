@@ -21,11 +21,6 @@ SAVEHIST=10000
 # composer
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-# sdkman
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-
 # opam configuration
 test -r "$HOME/.opam/opam-init/init.zsh" && . "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null || true
 
@@ -41,3 +36,21 @@ export PATH="${PATH}:${GOPATH}/bin"
 
 # rust
 # . "$HOME/.cargo/env"
+
+# pnpm
+export PNPM_HOME="$HOME/.pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+# k9s
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
+
+# gam
+alias gam="/Users/kevin.l/bin/gam7/gam"
+
+# zsh-autosuggestions
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+export ZSH_AUTOSUGGEST_USE_ASYNC=1
+
+# nvm
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
