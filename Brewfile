@@ -35,7 +35,7 @@ cask "karabiner-elements"
 cask "raycast", args: { require_sha: false }
 cask "obsidian"
 cask "snipaste"
-cask "bartender"
+cask "jordanbaird-ice@beta"
 cask "kitty"
 cask "ghostty"
 cask "amethyst"
