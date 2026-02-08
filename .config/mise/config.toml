@@ -1,5 +1,11 @@
 [tools]
+bun = "latest"
 node = "24"
+"npm:@fission-ai/openspec" = "0.22.0"
+"npm:@google/gemini-cli" = "0.27.0"
+"npm:@mariozechner/pi-coding-agent" = "0.51.6"
+"npm:@openai/codex" = "0.98.0"
+"npm:yarn" = "1.22.22"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
