@@ -65,3 +65,10 @@ zellij_tab_name_update() {
   chpwd_functions+=(zellij_tab_name_update) 
 }
 
+zellij_attach() {
+  if [[ -z "$ZELLIJ_SESSION_NAME" ]]; then
+      zellij attach -c $USER@$(hostname)
+  fi
+}
+
+alias za=zellij_attach
