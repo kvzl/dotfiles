@@ -81,6 +81,7 @@ brew "kubecm"
 brew "hadolint"
 brew "terraform-docs"
 brew "krew"
+brew "caddy"
 
 # Language servers
 brew "rust-analyzer"
