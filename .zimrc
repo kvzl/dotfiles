@@ -9,7 +9,6 @@ zmodule ohmyzsh/ohmyzsh --root plugins/docker-compose
 zmodule hlissner/zsh-autopair
 zmodule molovo/tipz
 zmodule MichaelAquilina/zsh-autoswitch-virtualenv
-zmodule lukechilds/zsh-nvm
 
 zmodule mroth/evalcache
 zmodule romkatv/zsh-defer
