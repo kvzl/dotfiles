@@ -71,4 +71,5 @@ flycheck_*.el
 !.config/sketchybar
 !.config/ghostty
 !.config/zellij
+!.config/mise
 

@@ -42,6 +42,9 @@ fi
 # zoxide
 [[ ! "$(command -v zoxide)" ]] || zsh-defer _evalcache zoxide init zsh --cmd z
 
+# mise
+zsh-defer _evalcache mise activate zsh
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"

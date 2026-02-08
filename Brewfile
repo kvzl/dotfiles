@@ -46,13 +46,14 @@ cask "brave-browser"
 
 # Programming languages
 brew "pyenv"
-brew "nvm"
-brew "pipenv"
+# brew "nvm"
+# brew "pipenv"
 brew "go"
 tap "oven-sh/bun"
 brew "bun"
 brew "zig"
 brew "luarocks"
+brew "mise"
 
 # Fonts
 # tap "homebrew/cask-fonts"
