@@ -93,4 +93,5 @@ tfws() {
   export AWS_PROFILE=$1 && terraform workspace select $workspace
 }
 
-
+# bun
+export PATH="/$HOME/.bun/bin:$PATH"
