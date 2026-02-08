@@ -2,6 +2,7 @@
 
 # Utilities
 brew "cmake"
+brew "bison"
 brew "wget"
 brew "eza"
 brew "git"

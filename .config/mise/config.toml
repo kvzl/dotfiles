@@ -3,3 +3,6 @@ node = "24"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
+
+[settings.npm]
+package_manager = "bun"
