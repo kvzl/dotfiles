@@ -3,6 +3,7 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
+    ---@diagnostic disable-next-line: missing-fields
     require("nordic").load({
       on_highlight = function(highlights, palette)
         highlights.CursorLine.bg = palette.black0

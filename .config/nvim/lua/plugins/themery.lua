@@ -12,6 +12,10 @@ return {
           name = "Catppuccin",
           colorscheme = "catppuccin",
         },
+        {
+          name = "Kanagawa",
+          colorscheme = "kanagawa-dragon",
+        },
       },
     })
   end,
