@@ -99,6 +99,7 @@ keybinds clear-defaults=true {
         bind "j" { MoveFocus "down"; SwitchToMode "normal"; }
         bind "k" { MoveFocus "up"; SwitchToMode "normal"; }
         bind "l" { MoveFocus "right"; SwitchToMode "normal"; }
+        bind "m" { SwitchToMode "renamepane"; }
         bind "n" { GoToNextTab; SwitchToMode "normal"; }
         bind "p" { GoToPreviousTab; SwitchToMode "normal"; }
         bind "s" {
