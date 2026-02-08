@@ -23,3 +23,6 @@ alias kc='kubecm'
 # exa
 alias ls='eza'
 alias la='eza -al'
+
+# opencode
+alias oc='opencode'
