@@ -15,7 +15,9 @@ window-colorspace = display-p3
 window-theme = dark
 
 font-family = Google Sans Code, Fira Code, JetbrainsMono Nerd Font
-font-size = 12
+font-size = 13
 
 adjust-cell-height = 0%
-theme = Vesper	
+theme = Vesper
+
+macos-option-as-alt = true
