@@ -6,6 +6,7 @@ node = "24"
 "npm:@mariozechner/pi-coding-agent" = "0.51.6"
 "npm:@openai/codex" = "0.98.0"
 "npm:yarn" = "1.22.22"
+serverless = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node"]
