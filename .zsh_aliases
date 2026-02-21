@@ -26,3 +26,12 @@ alias la='eza -al'
 
 # opencode
 alias oc='opencode'
+
+# ccusage
+alias ccusage-codex='bunx @ccusage/codex@latest'
+
+# claude code
+alias cc-codex="$HOME/.local/bin/claude --settings ~/.claude/settings-codex.json"
+alias cc-bedrock="$HOME/.local/bin/claude --settings ~/.claude/settings-bedrock.json"
+alias claude='cc-codex'
+
