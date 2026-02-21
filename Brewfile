@@ -31,6 +31,9 @@ brew "neovim"
 brew "watch"
 brew "lazygit"
 
+tap "sst/tap"
+brew "opencode"
+
 # Apps
 cask "karabiner-elements"
 cask "raycast", args: { require_sha: false }
@@ -41,9 +44,6 @@ cask "kitty"
 cask "ghostty"
 cask "amethyst"
 cask "brave-browser"
-
-# tap "FelixKratz/formulae"
-# brew "sketchybar"
 
 # Programming languages
 brew "pyenv"
@@ -94,4 +94,3 @@ brew "typescript-language-server"
 
 # tap "d12frosted/emacs-plus"
 # brew "emacs-plus@29", args: ["with-imagemagick", "with-xwidgets", "with-poll", "with-native-comp", "with-savchenkovaleriy-big-sur-icon"]
-
