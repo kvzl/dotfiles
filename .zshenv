@@ -43,10 +43,6 @@ export PATH="$PNPM_HOME:$PATH"
 # k9s
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
-# gam
-export PATH="$HOME/bin:$PATH"
-alias gam="$HOME/bin/gam7/gam"
-
 # zsh-autosuggestions
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
 export ZSH_AUTOSUGGEST_USE_ASYNC=1

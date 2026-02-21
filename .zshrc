@@ -75,3 +75,8 @@ zellij_attach() {
 }
 
 alias za=zellij_attach
+
+# gam
+export PATH="$HOME/bin:$PATH"
+alias gam="$HOME/bin/gam7/gam"
+
