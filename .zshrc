@@ -65,7 +65,7 @@ zellij_tab_name_update() {
 
 [[ -n $ZELLIJ ]] && {
   zsh-defer zellij_tab_name_update
-  chpwd_functions+=(zellij_tab_name_update) 
+  chpwd_functions+=(zellij_tab_name_update)
 }
 
 zellij_attach() {
