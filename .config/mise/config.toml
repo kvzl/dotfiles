@@ -1,7 +1,7 @@
 [tools]
 bun = "latest"
 node = "24"
-"npm:@fission-ai/openspec" = "0.22.0"
+"npm:@fission-ai/openspec" = "1.1"
 "npm:@google/gemini-cli" = "0.27.0"
 "npm:@mariozechner/pi-coding-agent" = "0.51.6"
 "npm:@openai/codex" = "0.98.0"
