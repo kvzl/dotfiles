@@ -47,10 +47,6 @@ export K9S_CONFIG_DIR="$HOME/.config/k9s"
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 
-# nvm
-export NVM_LAZY_LOAD=true
-export NVM_COMPLETION=true
-
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
