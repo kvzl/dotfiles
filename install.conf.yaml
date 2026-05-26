@@ -17,6 +17,7 @@
     ~/.p10k.zsh: .p10k.zsh
     ~/.emacs.d: .emacs.d
     ~/.alacritty.yml: .alacritty.yml
+    ~/.aerospace.toml: .aerospace.toml
 
 - create:
     - ~/Scripts
