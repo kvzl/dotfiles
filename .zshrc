@@ -77,7 +77,7 @@ zellij_tab_name_update() {
 
 zellij_attach() {
   if [[ -z "$ZELLIJ_SESSION_NAME" ]]; then
-      zellij attach -c $USER@$(hostname)
+      ZELLIJ_SOCKET_DIR=/tmp/zellij zellij attach -c $USER@$(hostname) --force-run-commands
   fi
 }
 
