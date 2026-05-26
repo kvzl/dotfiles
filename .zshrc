@@ -42,8 +42,15 @@ fi
 # zoxide
 [[ ! "$(command -v zoxide)" ]] || zsh-defer _evalcache zoxide init zsh --cmd z
 
+# Keep the first occurrence of each PATH entry so old mise install paths do not
+# linger ahead via repeated shell initialization.
+typeset -U path PATH
+
 # mise
-zsh-defer _evalcache mise activate zsh
+# `mise activate` emits PATH-sensitive shell code, so caching/deferred eval can
+# leave stale tool ordering in place and shadow configured npm tools.
+eval "$(mise activate zsh)"
+rehash
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -79,4 +86,3 @@ alias za=zellij_attach
 # gam
 export PATH="$HOME/bin:$PATH"
 alias gam="$HOME/bin/gam7/gam"
-
