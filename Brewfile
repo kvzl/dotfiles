@@ -45,6 +45,7 @@ cask "kitty"
 cask "ghostty"
 cask "amethyst"
 cask "brave-browser"
+cask "zed
 
 # Programming languages
 brew "pyenv"
