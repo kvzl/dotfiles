@@ -30,6 +30,7 @@ brew "zoxide"
 brew "neovim"
 brew "watch"
 brew "lazygit"
+brew "just"
 
 tap "sst/tap"
 brew "opencode"
