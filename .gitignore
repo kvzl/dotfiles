@@ -72,4 +72,7 @@ flycheck_*.el
 !.config/ghostty
 !.config/zellij
 !.config/mise
-
+!.config/zed
+.config/zed/*
+!.config/zed/keymap.json
+!.config/zed/settings.json

@@ -1,0 +1,86 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "title_bar": {
+    "show_branch_status_icon": false
+  },
+  "cli_default_open_behavior": "existing_window",
+  "terminal": {
+    "font_size": 14.0,
+    "font_family": "Iosevka Fixed"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "restore_on_startup": "launchpad",
+  "use_system_prompts": false,
+  "when_closing_with_no_tabs": "keep_window_open",
+  "agent_servers": {
+    "gemini": {
+      "type": "registry"
+    },
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
+  "ssh_connections": [
+    {
+      "host": "pi-claw",
+      "args": [],
+      "projects": [
+        {
+          "paths": ["/home/pi"]
+        }
+      ]
+    }
+  ],
+  "git_panel": {
+    "dock": "left",
+    "tree_view": true
+  },
+  "project_panel": {
+    "button": false,
+    "dock": "left",
+    "hide_hidden": false
+  },
+  "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
+    "default_profile": "ask",
+    "default_model": {
+      "enable_thinking": true,
+      "provider": "google",
+      "model": "gemini-3.1-pro-preview"
+    },
+    "model_parameters": []
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "vim_mode": true,
+  "base_keymap": "Cursor",
+  "ui_font_size": 14,
+  "buffer_font_size": 13.0,
+  "theme": {
+    "mode": "light",
+    "light": "GitHub Light Colorblind",
+    "dark": "Kanagawa Dragon - No Italics"
+  },
+  "ui_font_family": "Iosevka",
+  "buffer_font_family": "Iosevka"
+}
