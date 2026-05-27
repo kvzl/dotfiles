@@ -1,5 +1,7 @@
 [tools]
 bun = "latest"
+erlang = "28"
+elixir = "1.19"
 node = "24"
 "npm:@fission-ai/openspec" = "1.1"
 "npm:@google/gemini-cli" = "0.27.0"
